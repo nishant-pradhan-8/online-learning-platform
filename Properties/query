@@ -1,0 +1,7 @@
+IF NOT EXISTS (SELECT name
+               FROM sys.databases
+               WHERE name = N'learning_platform')
+    CREATE DATABASE learning_platform;
+
+INSERT INTO Users (full_name, email, password, role, created_at, modified_at)
+VALUES ('John Doe', 'john.doe@example.com', 'hashed_password_here', 'student', GETDATE(), GETDATE());
