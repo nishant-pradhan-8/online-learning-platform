@@ -1,50 +1,1414 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - online_learning_platform</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/online_learning_platform.styles.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educeet - Online Learning Platform</title>
+    <meta name="description"
+        content="Unlock your potential with expert online learning. Join Educeet to explore high-quality courses and gain real-world skills.">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        yellow: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        primary: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-menu {
+            display: block;
+        }
+
+        .mobile-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        /* Improved focus styles for accessibility */
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid #0d9488;
+            outline-offset: 2px;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+      * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .highlight {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: -4px;
+            right: -4px;
+            height: 16px;
+            background: linear-gradient(to right, #fbbf24, #f59e0b);
+            z-index: -1;
+            border-radius: 4px;
+        }
+        
+        .course-card {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: scale(1.05);
+        }    
+    </style>
+     <style>
+        /* Dropdown styles */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu {
+            animation: fadeIn 0.2s ease-in-out;
+        }
+    </style>
+    <style>
+@@keyframes continuous-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+.animate-continuous-scroll {
+  animation: continuous-scroll 25s linear infinite;
+  width: 400%; /* 4x width for 4 sets of logos */
+}
+
+/* Optional: Add hover pause and smooth animation */
+.animate-continuous-scroll {
+  transition: animation-play-state 0.3s;
+}
+
+.animate-continuous-scroll:hover {
+  animation-play-state: paused;
+}
+</style>
+<style>
+.highlight {
+            background: linear-gradient(to right, #0d9488, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .course-card {
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .fade-out {
+            opacity: 0;
+        }
+        
+        .fade-in {
+            opacity: 1;
+        }
+        </style>
 </head>
-<body>
+
+<body class="bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50">
+    <!-- Navbar -->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">online_learning_platform</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+              <nav class="relative pt-4" aria-label="Main navigation">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50 py-2 rounded-2xl">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <a href="/" aria-label="Educeet Home">
+                            <img src="images/logo.png" alt="Educeet Logo" class="h-12 w-auto"
+                                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjU2IiB2aWV3Qm94PSIwIDAgMTQwIDU2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNDAiIGhlaWdodD0iNTYiIHJ4PSI4IiBmaWxsPSIjMTRiOGE2Ii8+PHRleHQgeD0iMjAiIHk9IjM1IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCI+RWR1Y2VldDwvdGV4dD48L3N2Zz4='">
+                        </a>
+                    </div>
+
+                    <!-- Navigation Links - Desktop -->
+                    <div class="hidden md:flex items-center flex-1 justify-center">
+                        <ul class="flex items-center space-x-6">
+                            <li>
+                                <a href="/" class="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors duration-200">
+                                    Home
+                                </a>
+                            </li>
+
+                            <!-- Pages Dropdown -->
+                            <li class="relative dropdown">
+                                <a class="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors duration-200 flex items-center" aria-expanded="false">
+                                    Pages
+                                    <i class="fas fa-chevron-down ml-1 text-xs" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-4 z-10 hidden bg-black" role="menu">
+                                    <a href="/Home/About" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">About Us</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Our Team</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Testimonials</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">FAQs</a>
+                                </div>
+                            </li>
+
+                            <!-- Courses Dropdown -->
+                            <li class="relative dropdown">
+                                <a href="" class="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors duration-200 flex items-center" aria-expanded="false">
+                                    Courses
+                                    <i class="fas fa-chevron-down ml-1 text-xs" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-10 hidden" role="menu">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Web Development</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Data Science</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Digital Marketing</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Graphic Design</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Business Management</a>
+                                </div>
+                            </li>
+
+                            <!-- Blog Dropdown -->
+                            <li class="relative dropdown">
+                                <a href="#" class="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors duration-200 flex items-center" aria-expanded="false">
+                                    Blog
+                                    <i class="fas fa-chevron-down ml-1 text-xs" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden" role="menu">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Latest Articles</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Tutorials</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Industry News</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Student Stories</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors duration-200">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Section - Desktop -->
+                    <div class="hidden md:flex items-center space-x-4">
+                        <!-- Search Icon -->
+                        <button class="text-gray-600 hover:text-teal-600 transition-colors duration-200 p-2" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+
+                        <!-- Login/Register -->
+                        <a href="#" class="text-gray-700 hover:text-teal-600 transition-colors duration-200 whitespace-nowrap">
+                            <span class="text-md font-medium">Login / Registration</span>
+                        </a>
+
+                        <!-- Apply Now Button -->
+                        <button class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors duration-200 shadow-sm whitespace-nowrap">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right text-sm" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobileMenuButton" class="text-gray-700 hover:text-teal-600 p-2" aria-label="Toggle mobile menu" aria-expanded="false">
+                            <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t border-gray-200 hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#" class="text-gray-700 hover:text-teal-600 block px-3 py-2 text-base font-medium">Home</a>
+
+                    <!-- Pages Mobile Dropdown -->
+                    <div class="mobile-dropdown">
+                        <button class="mobile-dropdown-toggle text-gray-700 hover:text-teal-600 w-full text-left px-3 py-2 text-base font-medium flex justify-between items-center" aria-expanded="false">
+                            Pages
+                            <i class="fas fa-chevron-down text-xs" aria-hidden="true"></i>
+                        </button>
+                        <div class="mobile-dropdown-menu pl-4 hidden">
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">About Us</a>
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Our Team</a>
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Testimonials</a>
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">FAQs</a>
+                        </div>
+                    </div>
+
+                    <!-- Courses Mobile Dropdown -->
+                    <div class="mobile-dropdown">
+                        <button class="mobile-dropdown-toggle text-gray-700 hover:text-teal-600 w-full text-left px-3 py-2 text-base font-medium flex justify-between items-center" aria-expanded="false">
+                            Courses
+                            <i class="fas fa-chevron-down text-xs" aria-hidden="true"></i>
+                        </button>
+                        <div class="mobile-dropdown-menu pl-4 hidden">
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Web Development</a>
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Data Science</a>
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Digital Marketing</a>
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Graphic Design</a>
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Business Management</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Mobile Dropdown -->
+                    <div class="mobile-dropdown">
+                        <button class="mobile-dropdown-toggle text-gray-700 hover:text-teal-600 w-full text-left px-3 py-2 text-base font-medium flex justify-between items-center" aria-expanded="false">
+                            Blog
+                            <i class="fas fa-chevron-down text-xs" aria-hidden="true"></i>
+                        </button>
+                        <div class="mobile-dropdown-menu pl-4 hidden">
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Latest Articles</a>
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Tutorials</a>
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Industry News</a>
+                            <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Student Stories</a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="text-gray-700 hover:text-teal-600 block px-3 py-2 text-base font-medium">Contact</a>
+
+                    <!-- Mobile Actions -->
+                    <div class="pt-4 pb-3 border-t border-gray-200">
+                        <div class="flex items-center px-3 py-2 space-x-4">
+                            <button class="text-gray-600 hover:text-teal-600" aria-label="Search">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                            </button>
+                            <a href="#" class="text-gray-700 text-sm font-medium">Login / Registration</a>
+                        </div>
+                        <button class="w-full mt-3 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center space-x-2 transition-colors duration-200">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right text-sm" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class='bg-teal-600 py-3 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 rounded-b-2xl relative -mt-1'></div>
+        </nav>
+
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 pt-20 md:pt-32"
+        aria-labelledby="hero-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative">
+                <!-- Student Images - Top Left -->
+                <div class="absolute top-0 left-0 md:left-12 hidden md:block">
+                    <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Student" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Student Images - Left Middle -->
+                <div class="absolute top-1/2 -translate-y-1/2 left-0 hidden lg:block">
+                    <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Student" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Student Images - Bottom Left -->
+                <div class="absolute bottom-0 left-16 hidden md:block">
+                    <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Student" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Student Images - Top Right -->
+                <div class="absolute top-8 right-0 md:right-12 hidden md:block">
+                    <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Student" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Student Images - Right Bottom -->
+                <div class="absolute bottom-8 right-4 hidden lg:block">
+                    <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+                            alt="Student" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Decorative Elements -->
+                @* <div class="absolute top-32 left-1/4 hidden lg:block">
+                    <div class="w-16 h-16 text-yellow-400 opacity-60">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <rect x="10" y="10" width="15" height="15" fill="currentColor"
+                                transform="rotate(45 17.5 17.5)" />
+                            <rect x="40" y="10" width="15" height="15" fill="currentColor"
+                                transform="rotate(45 47.5 17.5)" />
+                            <rect x="70" y="10" width="15" height="15" fill="currentColor"
+                                transform="rotate(45 77.5 17.5)" />
+                            <rect x="10" y="40" width="15" height="15" fill="currentColor"
+                                transform="rotate(45 17.5 47.5)" />
+                            <rect x="40" y="40" width="15" height="15" fill="currentColor"
+                                transform="rotate(45 47.5 47.5)" />
+                            <rect x="70" y="40" width="15" height="15" fill="currentColor"
+                                transform="rotate(45 77.5 47.5)" />
+                        </svg>
+                    </div>
+                </div> *@
+
+                <div class="absolute bottom-20 right-1/4 hidden lg:block">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-yellow-200 to-yellow-400 opacity-40">
+                    </div>
+                </div>
+
+                <!-- Central Content -->
+                <div class="relative z-10 text-center max-w-4xl mx-auto">
+                    <h1 id="hero-heading"
+                        class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-gray-900">
+                        <span class="block">Unlock Your Potential with</span>
+                        <span class="block mt-2">Expert <span class="text-teal-600">Online Learning</span></span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed px-4">
+                        Join Educeet to explore high-quality online courses, gain real-world skills, and achieve your
+                        goals with guidance from expert instructors—anytime, anywhere, at your pace.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                        <button
+                            class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-4 px-10 rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2 group">
+                            <span>Find Courses</span>
+                            <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"
+                                aria-hidden="true"></i>
+                        </button>
+
+                        <button
+                            class="bg-[#f8c62f] hover:bg-yellow-600 text-white font-semibold py-4 px-10 rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2 group">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"
+                                aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center gap-8 text-gray-700">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-teal-600 text-lg" aria-hidden="true"></i>
+                            <span class="font-medium">Expert Instructors</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-teal-600 text-lg" aria-hidden="true"></i>
+                            <span class="font-medium">Flexible Learning</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-teal-600 text-lg" aria-hidden="true"></i>
+                            <span class="font-medium">Certification</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+
+    <section class="relative  items-center justify-center max-w-7xl mx-auto mt-16 mb-16"
+        aria-labelledby="stats-heading">
+        <div
+            class="bg-teal-600 text-white rounded-l-full rounded-r-full py-12 px-8 md:px-12 max-w-7xl w-full relative z-10">
+            <h2 id="stats-heading" class="sr-only">Platform Statistics</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                <!-- Course Count -->
+                <div class="text-white flex justify-center items-center text-center gap-3">
+                    <i class="fas fa-graduation-cap text-3xl md:text-5xl text-[#f8c62f]" aria-hidden="true"></i>
+                    <div>
+                        <p class="text-2xl md:text-3xl font-bold">1090+</p>
+                        <p class="text-sm md:text-base">Our Online Courses</p>
+                    </div>
+                </div>
+
+                <!-- Instructor Count -->
+                <div class="text-white flex justify-center items-center text-center gap-3">
+                    <i class="fas fa-chalkboard-teacher text-3xl md:text-5xl text-[#f8c62f]" aria-hidden="true"></i>
+                    <div>
+                        <p class="text-2xl md:text-3xl font-bold">120+</p>
+                        <p class="text-sm md:text-base">Our Instructors</p>
+                    </div>
+                </div>
+
+                <!-- Video Lessons Count -->
+                <div class="text-white flex justify-center items-center text-center gap-3">
+                    <i class="fas fa-video text-3xl md:text-5xl text-[#f8c62f]" aria-hidden="true"></i>
+                    <div>
+                        <p class="text-2xl md:text-3xl font-bold">120+</p>
+                        <p class="text-sm md:text-base">Total Video Lessons</p>
+                    </div>
+                </div>
+
+                <!-- Students Enrolled Count -->
+                <div class="text-white flex justify-center items-center text-center gap-3">
+                    <i class="fas fa-user-graduate text-3xl md:text-5xl text-[#f8c62f]" aria-hidden="true"></i>
+                    <div>
+                        <p class="text-2xl md:text-3xl font-bold">6000+</p>
+                        <p class="text-sm md:text-base">Total Students Enrolled</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="bg-[#f8c62f] h-28 -mt-24 flex justify-center items-center rounded-l-full rounded-r-full py-1 px-4 md:px-8 max-w-7xl w-full  ">
+        </div>
+    </section>
+    </div>
+    @* Categories *@
+    <div class="bg-gradient-to-br from-teal-50 to-cyan-150 min-h-screen py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Section -->
+            <div class="text-center mb-12">
+                <span class="inline-block px-6 py-2 bg-teal-100 text-teal-700 rounded-full text-lg font-medium mb-8">
+                    Categories
+                </span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                    Explore Top Courses <span class="text-teal-600 relative">
+                        Categories
+                        <svg class="absolute -bottom-0 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
+                            <path d="M1 5.5C50 1.5 150 1.5 199 5.5" stroke="#FDB528" stroke-width="3"
+                                stroke-linecap="round" />
+                        </svg>
+                    </span>
+                    <br class="mt-2" />That Change Yourself
+                </h2>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ">
+                <!-- Business Management -->
+                <div
+                    class="category-card bg-white   p-8  text-center rounded-l-lg border border-gray-300 hover:bg-teal-800 hover:text-white  cursor-pointer group">
+                    <div class="w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-teal-600 group-hover:text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">Business Management</h3>
+                </div>
+
+                <!-- Arts & Design -->
+                <div
+                    class="category-card bg-white  p-8 text-center border border-gray-300 hover:bg-teal-800 hover:text-white  cursor-pointer group">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-blue-600 group-hover:text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">Arts & Design</h3>
+                </div>
+
+                <!-- Health & Fitness -->
+                <div
+                    class="category-card bg-white  p-8 text-center border border-gray-300 hover:bg-teal-800 hover:text-white  cursor-pointer group">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-red-500 group-hover:text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">Health & Fitness</h3>
+                </div>
+
+                <!-- Personal Development -->
+                <div
+                    class="category-card bg-white  p-8 text-center border rounded-r-lg border-gray-300 hover:bg-teal-800 hover:text-white  cursor-pointer group">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-blue-500 group-hover:text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">Personal Development</h3>
+                </div>
+
+                <!-- Video & Photography -->
+                <div
+                    class="category-card bg-white  p-8 rounded-l-lg text-center border border-gray-300 hover:bg-teal-800 hover:text-white  cursor-pointer group">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-blue-600 group-hover:text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">Video & Photography</h3>
+                </div>
+
+                <!-- Computer Science -->
+                <div
+                    class="category-card bg-white  p-8  text-center border border-gray-300 hover:bg-teal-800 hover:text-white  cursor-pointer group">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-green-600 group-hover:text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">Computer Science</h3>
+                </div>
+
+                <!-- Digital Marketing -->
+                <div
+                    class="category-card bg-white  p-8  text-center border border-gray-300 hover:bg-teal-800 hover:text-white  cursor-pointer group">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-purple-600 group-hover:text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">Digital Marketing</h3>
+                </div>
+
+                <!-- Data Science -->
+                <div
+                    class="category-card bg-white  p-8 rounded-r-lg text-center border border-gray-300 hover:bg-teal-800 hover:text-white  cursor-pointer group">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-pink-600 group-hover:text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">Data Science</h3>
+                </div>
+            </div>
+
+            <!-- Scroll to Top Button -->
+            <div class="fixed bottom-8 right-8">
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                    class="bg-teal-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-teal-700 transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                    </svg>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+            </div>
+        </div>
+
+        <!-- Decorative Dots -->
+        @* <div class="fixed top-8 right-8 grid grid-cols-6 gap-2 opacity-30">
+
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+        </div> *@
+    </div>
+
+    @* course *@
+
+<div class="relative overflow-hidden">
+        <!-- Decorative Background Elements -->
+        <div class="absolute top-0 left-0 w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1s;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 py-12 relative z-10">
+            <!-- Header Section -->
+            <div class="mb-12 ">
+                <span class="inline-block px-6 py-2 bg-gradient-to-r from-teal-100 to-teal-50 text-teal-700 rounded-full text-sm font-semibold mb-6 shadow-sm border border-teal-200">
+                    <i class="fas fa-graduation-cap mr-2"></i>Course Catalog
+                </span>
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                    <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                        Highly Rated Learning<br>
+                        <span class="bg-gradient-to-r from-teal-600 to-teal-400 bg-clip-text text-transparent">Programs Today</span>
+                    </h1>
+                    <div class="flex gap-6 text-base font-semibold">
+                        <button class="text-gray-900 border-b-3 border-teal-600 pb-2 hover:text-teal-600 transition-colors">All Courses</button>
+                        <button class="text-gray-500 hover:text-gray-900 pb-2 border-b-2 border-transparent hover:border-gray-300 transition-all">Trending</button>
+                        <button class="text-gray-500 hover:text-gray-900 pb-2 border-b-2 border-transparent hover:border-gray-300 transition-all">Popularity</button>
+                        <button class="text-gray-500 hover:text-gray-900 pb-2 border-b-2 border-transparent hover:border-gray-300 transition-all">Featured</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Course Card 1 -->
+                <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl card-hover overflow-hidden group animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="p-6">
+                        <div class="relative mb-6 overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop"
+                                alt="Design Thinking Course" class="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 gradient-overlay"></div>
+                            <span class="absolute top-4 left-4 px-4 py-2 bg-teal-600 text-white text-xs font-bold rounded-lg shadow-lg backdrop-blur-sm">
+                                <i class="fas fa-palette mr-1"></i>Arts
+                            </span>
+                            <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white hover:scale-110 transition-all shadow-lg group/btn">
+                                <i class="far fa-bookmark text-gray-700 group-hover/btn:fas group-hover/btn:text-teal-600 transition-all"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://i.pravatar.cc/40?img=1" alt="Samantha" class="w-12 h-12 rounded-full ring-2 ring-teal-100">
+                            <span class="text-sm font-semibold text-gray-700">Samantha</span>
+                            <div class="ml-auto flex items-center gap-2">
+                                <span class="text-gray-400 line-through text-sm">$20.00</span>
+                                <span class="text-amber-500 text-2xl font-bold">$9.00</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 leading-tight group-hover:text-teal-600 transition-colors">Design Thinking Researching for Better UX</h3>
+                        <div class="flex items-center gap-2 mb-5">
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg text-gray-300"></i>
+                            </div>
+                            <span class="text-sm font-medium text-gray-600">(4.7/5 Rating)</span>
+                        </div>
+                        <div class="flex items-center gap-6 text-sm text-gray-600 pt-4 border-t border-gray-100">
+                            <div class="flex items-center gap-2 font-medium">
+                                <i class="fas fa-book-open text-teal-600 text-base"></i>
+                                <span>20 Lessons</span>
+                            </div>
+                            <div class="flex items-center gap-2 font-medium">
+                                <i class="fas fa-users text-teal-600 text-base"></i>
+                                <span>50 Students</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl card-hover overflow-hidden group animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="p-6">
+                        <div class="relative mb-6 overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop"
+                                alt="Student Favorite Programs" class="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 gradient-overlay"></div>
+                            <span class="absolute top-4 left-4 px-4 py-2 bg-teal-600 text-white text-xs font-bold rounded-lg shadow-lg backdrop-blur-sm">
+                                <i class="fas fa-code mr-1"></i>Development
+                            </span>
+                            <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white hover:scale-110 transition-all shadow-lg group/btn">
+                                <i class="far fa-bookmark text-gray-700 group-hover/btn:fas group-hover/btn:text-teal-600 transition-all"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://i.pravatar.cc/40?img=3" alt="William" class="w-12 h-12 rounded-full ring-2 ring-teal-100">
+                            <span class="text-sm font-semibold text-gray-700">William</span>
+                            <div class="ml-auto flex items-center gap-2">
+                                <span class="text-gray-400 line-through text-sm">$20.00</span>
+                                <span class="text-amber-500 text-2xl font-bold">$9.00</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 leading-tight group-hover:text-teal-600 transition-colors">Learn from the Best – Student Favorite Programs</h3>
+                        <div class="flex items-center gap-2 mb-5">
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg text-gray-300"></i>
+                            </div>
+                            <span class="text-sm font-medium text-gray-600">(4.7/5 Rating)</span>
+                        </div>
+                        <div class="flex items-center gap-6 text-sm text-gray-600 pt-4 border-t border-gray-100">
+                            <div class="flex items-center gap-2 font-medium">
+                                <i class="fas fa-book-open text-teal-600 text-base"></i>
+                                <span>20 Lessons</span>
+                            </div>
+                            <div class="flex items-center gap-2 font-medium">
+                                <i class="fas fa-users text-teal-600 text-base"></i>
+                                <span>50 Students</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl card-hover overflow-hidden group animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="p-6">
+                        <div class="relative mb-6 overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=300&fit=crop"
+                                alt="Boost Your Skills" class="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 gradient-overlay"></div>
+                            <span class="absolute top-4 left-4 px-4 py-2 bg-teal-600 text-white text-xs font-bold rounded-lg shadow-lg backdrop-blur-sm">
+                                <i class="fas fa-pen-nib mr-1"></i>Design
+                            </span>
+                            <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white hover:scale-110 transition-all shadow-lg group/btn">
+                                <i class="far fa-bookmark text-gray-700 group-hover/btn:fas group-hover/btn:text-teal-600 transition-all"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://i.pravatar.cc/40?img=5" alt="Shannon" class="w-12 h-12 rounded-full ring-2 ring-teal-100">
+                            <span class="text-sm font-semibold text-gray-700">Shannon</span>
+                            <div class="ml-auto flex items-center gap-2">
+                                <span class="text-gray-400 line-through text-sm">$20.00</span>
+                                <span class="text-amber-500 text-2xl font-bold">$9.00</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 leading-tight group-hover:text-teal-600 transition-colors">Boost Your Skills with Popular Courses</h3>
+                        <div class="flex items-center gap-2 mb-5">
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg text-gray-300"></i>
+                            </div>
+                            <span class="text-sm font-medium text-gray-600">(4.7/5 Rating)</span>
+                        </div>
+                        <div class="flex items-center gap-6 text-sm text-gray-600 pt-4 border-t border-gray-100">
+                            <div class="flex items-center gap-2 font-medium">
+                                <i class="fas fa-book-open text-teal-600 text-base"></i>
+                                <span>20 Lessons</span>
+                            </div>
+                            <div class="flex items-center gap-2 font-medium">
+                                <i class="fas fa-users text-teal-600 text-base"></i>
+                                <span>50 Students</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 4 -->
+                <div class="bg-white rounded-3xl shadow-lg hover:shadow-2xl card-hover overflow-hidden group animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="p-6">
+                        <div class="relative mb-6 overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?w=400&h=300&fit=crop"
+                                alt="Discover Highly Rated Learning Programs" class="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 gradient-overlay"></div>
+                            <span class="absolute top-4 left-4 px-4 py-2 bg-teal-600 text-white text-xs font-bold rounded-lg shadow-lg backdrop-blur-sm">
+                                <i class="fas fa-pen-nib mr-1"></i>Design
+                            </span>
+                            <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white hover:scale-110 transition-all shadow-lg group/btn">
+                                <i class="far fa-bookmark text-gray-700 group-hover/btn:fas group-hover/btn:text-teal-600 transition-all"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://i.pravatar.cc/40?img=9" alt="Claire" class="w-12 h-12 rounded-full ring-2 ring-teal-100">
+                            <span class="text-sm font-semibold text-gray-700">Claire</span>
+                            <div class="ml-auto flex items-center gap-2">
+                                <span class="text-gray-400 line-through text-sm">$20.00</span>
+                                <span class="text-amber-500 text-2xl font-bold">$9.00</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 leading-tight group-hover:text-teal-600 transition-colors">Discover Highly Rated Learning Programs</h3>
+                        <div class="flex items-center gap-2 mb-5">
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg"></i>
+                                <i class="fas fa-star text-lg text-gray-300"></i>
+                            </div>
+                            <span class="text-sm font-medium text-gray-600">(4.7/5 Rating)</span>
+                        </div>
+                        <div class="flex items-center gap-6 text-sm text-gray-600 pt-4 border-t border-gray-100">
+                            <div class="flex items-center gap-2 font-medium">
+                                <i class="fas fa-book-open text-teal-600 text-base"></i>
+                                <span>20 Lessons</span>
+                            </div>
+                            <div class="flex items-center gap-2 font-medium">
+                                <i class="fas fa-users text-teal-600 text-base"></i>
+                                <span>50 Students</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="flex justify-center items-center mb-16 animate-fade-in-up" style="animation-delay: 0.5s;">
+                <button class="group bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 text-white font-bold py-4 px-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 transform hover:scale-105">
+                    View All Courses
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="flex justify-center right-2 left-2 z-20" >
+                <div class="bg-gradient-to-r from-teal-700 to-teal-600 text-white rounded-3xl shadow-2xl overflow-hidden max-w-5xl w-full hover:shadow-3xl transition-shadow duration-300">
+                    <div class="flex flex-col md:flex-row items-center justify-between p-8 gap-6">
+                        <div class="flex items-center gap-6">
+                            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hidden md:block">
+                              <img src="/images/student.png" >
+                            </div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-center md:text-left leading-tight">
+                                Classes Built To Teach<br>Everything
+                            </h2>
+                        </div>
+                        <button class="group bg-white text-teal-700 font-bold py-4 px-8 rounded-full flex items-center gap-3 hover:bg-gray-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                            Try 7 days free trial
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* live courses *@
+
+   <div class="bg-white min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- Header -->
+        <div class="text-center mb-8 sm:mb-12">
+            <span class="inline-block px-4 sm:px-6 py-2 bg-gradient-to-r from-teal-100 to-teal-50 text-teal-700 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6 shadow-sm border border-teal-200">
+                Live Courses
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 px-4">
+                Today Top Free <span class="highlight">Live Courses</span>
+            </h2>
+        </div>
+
+        <!-- Course Card Container -->
+        <div class="relative max-w-5xl mx-auto">
+            <!-- Navigation Buttons -->
+            <button id="prevBtn" class="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-6 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg items-center justify-center hover:bg-gray-50 transition-colors border border-gray-200">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            
+            <button id="nextBtn" class="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-6 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg items-center justify-center hover:bg-gray-50 transition-colors border border-gray-200">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+
+            <!-- Course Card -->
+            <div id="courseCard" class="course-card bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden fade-in">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <!-- Left Side - Image -->
+                    <div id="courseImage" class="relative bg-gradient-to-br from-gray-100 to-gray-50 p-6 sm:p-8 flex items-center justify-center min-h-[250px] sm:min-h-[300px]">
+                        <div class="absolute top-4 left-4 sm:top-6 sm:left-6 bg-gray-800/80 text-white px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-lg flex items-center gap-2 text-xs sm:text-sm">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="relative w-full max-w-xs sm:max-w-sm">
+                            <img id="instructorMainImg" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=500&fit=crop" alt="Instructor" class="w-full h-auto rounded-xl sm:rounded-2xl shadow-lg">
+                            <div class="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-white rounded-full p-3 sm:p-4 shadow-lg">
+                                <svg class="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Course Details -->
+                    <div class="p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+                        <div>
+                            <span id="courseCategory" class="inline-block px-3 sm:px-4 py-1.5 bg-orange-100 text-orange-700 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                                Art & Design
+                            </span>
+
+                            <!-- Instructor Info -->
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <img id="instructorAvatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Instructor" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-gray-200">
+                                    <div>
+                                        <p id="instructorName" class="font-semibold text-gray-900 text-sm sm:text-base">Ariel Clark</p>
+                                        <p class="text-xs sm:text-sm text-gray-500">Teacher</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1 sm:ml-auto">
+                                    <div id="starRating" class="flex items-center gap-0.5">
+                                        <!-- Stars will be dynamically generated -->
+                                    </div>
+                                    <span id="ratingText" class="text-xs sm:text-sm text-gray-600 ml-1">(4.7/5)</span>
+                                </div>
+                            </div>
+
+                            <!-- Course Title -->
+                            <h3 id="courseTitle" class="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+                                Grow Personal Financial Security Thinking & Principles
+                            </h3>
+
+                            <!-- Course Stats -->
+                            <div class="flex items-center gap-4 sm:gap-6 text-gray-600 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                    </svg>
+                                    <span id="courseLessons" class="text-xs sm:text-sm">20 Lessons</span>
+                                </div>
+                                <div class="w-px h-4 sm:h-6 bg-gray-300"></div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                    </svg>
+                                    <span id="courseStudents" class="text-xs sm:text-sm">50 Students</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Join Button -->
+                        <button class="bg-teal-700 hover:bg-teal-800 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg transition-colors flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-base">
+                            Join Now
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Dots -->
+            <div id="progressDots" class="flex justify-center gap-2 mt-6 sm:mt-8">
+                <!-- Dots will be dynamically generated -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* Logo *@
+
+<div class="bg-[#0e887e] overflow-hidden">
+  <div class="relative py-12">
+    <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0e887e] to-transparent z-10"></div>
+    <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0e887e] to-transparent z-10"></div>
+
+    <div class="flex animate-continuous-scroll">
+      <!-- Repeat this block 4 times for smooth continuous effect -->
+      <div class="flex items-center shrink-0 gap-8 sm:gap-16 px-4">
+        <img class="w-16 sm:w-[150px]" src="/images/logo1.png" alt="Logo 1">
+        <img class="w-16 sm:w-[150px]" src="/images/logo2.png" alt="Logo 2">
+        <img class="w-16 sm:w-[150px]" src="/images/logo3.png" alt="Logo 3">
+        <img class="w-16 sm:w-[150px]" src="/images/logo4.png" alt="Logo 4">
+        <img class="w-16 sm:w-[150px]" src="/images/logo1.png" alt="Logo 1">
+      </div>
+      
+      <div class="flex items-center shrink-0 gap-8 sm:gap-16 px-4">
+        <img class="w-16 sm:w-[150px]" src="/images/logo1.png" alt="Logo 1">
+        <img class="w-16 sm:w-[150px]" src="/images/logo2.png" alt="Logo 2">
+        <img class="w-16 sm:w-[150px]" src="/images/logo3.png" alt="Logo 3">
+        <img class="w-16 sm:w-[150px]" src="/images/logo4.png" alt="Logo 4">
+        <img class="w-16 sm:w-[150px]" src="/images/logo1.png" alt="Logo 1">
+      </div>
+      
+      <div class="flex items-center shrink-0 gap-8 sm:gap-16 px-4">
+        <img class="w-16 sm:w-[150px]" src="/images/logo1.png" alt="Logo 1">
+        <img class="w-16 sm:w-[150px]" src="/images/logo2.png" alt="Logo 2">
+        <img class="w-16 sm:w-[150px]" src="/images/logo3.png" alt="Logo 3">
+        <img class="w-16 sm:w-[150px]" src="/images/logo4.png" alt="Logo 4">
+        <img class="w-16 sm:w-[150px]" src="/images/logo1.png" alt="Logo 1">
+      </div>
+      
+      <div class="flex items-center shrink-0 gap-8 sm:gap-16 px-4">
+        <img class="w-16 sm:w-[150px]" src="/images/logo1.png" alt="Logo 1">
+        <img class="w-16 sm:w-[150px]" src="/images/logo2.png" alt="Logo 2">
+        <img class="w-16 sm:w-[150px]" src="/images/logo3.png" alt="Logo 3">
+        <img class="w-16 sm:w-[150px]" src="/images/logo4.png" alt="Logo 4">
+        <img class="w-16 sm:w-[150px]" src="/images/logo1.png" alt="Logo 1">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+
+        @Html.Partial("_Upcomingevent")
+        @Html.Partial("_Instructor")
+         @Html.Partial("_Newpost")
+        
+            
+
+
+    </main>
+</div>
+
+
+   
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-24 py-8 mt-16" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Educeet</h3>
+                    <p class="text-gray-400">Empowering learners with quality education since 2023.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pages</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutorials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:info@educeet.com"
+                                class="text-gray-400 hover:text-white transition-colors">info@educeet.com</a></li>
+                        <li><a href="tel:+15551234567" class="text-gray-400 hover:text-white transition-colors">+1 (555)
+                                123-4567</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - online_learning_platform - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Educeet. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', function () {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Mobile dropdown toggle
+            document.querySelectorAll('.mobile-dropdown-toggle').forEach(button => {
+                button.addEventListener('click', function () {
+                    const dropdown = this.parentElement;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    // Close other dropdowns
+                    document.querySelectorAll('.mobile-dropdown').forEach(dd => {
+                        if (dd !== dropdown) {
+                            dd.classList.remove('active');
+                            dd.querySelector('.mobile-dropdown-toggle').setAttribute('aria-expanded', 'false');
+                            dd.querySelector('.mobile-dropdown-menu').classList.add('hidden');
+                        }
+                    });
+
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                    this.setAttribute('aria-expanded', !isExpanded);
+
+                    // Toggle dropdown menu visibility
+                    const dropdownMenu = dropdown.querySelector('.mobile-dropdown-menu');
+                    dropdownMenu.classList.toggle('hidden');
+                });
+            });
+
+            // Desktop dropdown hover functionality
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                const toggle = dropdown.querySelector('a');
+
+                dropdown.addEventListener('mouseenter', function () {
+                    this.querySelector('.dropdown-menu').classList.remove('hidden');
+                });
+
+                dropdown.addEventListener('mouseleave', function () {
+                    this.querySelector('.dropdown-menu').classList.add('hidden');
+                });
+
+                // Keyboard navigation for dropdowns
+                toggle.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const menu = dropdown.querySelector('.dropdown-menu');
+                        const isHidden = menu.classList.contains('hidden');
+
+                        if (isHidden) {
+                            menu.classList.remove('hidden');
+                            toggle.setAttribute('aria-expanded', 'true');
+                        } else {
+                            menu.classList.add('hidden');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.classList.add('hidden');
+                    });
+                    document.querySelectorAll('.dropdown a').forEach(toggle => {
+                        toggle.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
+        });
+
+
+
+
+        const courses = [
+            {
+                category: 'Art & Design',
+                categoryColor: 'bg-orange-100 text-orange-700',
+                instructor: 'Ariel Clark',
+                instructorAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+                instructorImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=500&fit=crop',
+                title: 'Grow Personal Financial Security Thinking & Principles',
+                rating: 4.7,
+                lessons: 20,
+                students: 50
+            },
+            {
+                category: 'Business',
+                categoryColor: 'bg-blue-100 text-blue-700',
+                instructor: 'John Smith',
+                instructorAvatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+                instructorImage: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=500&h=500&fit=crop',
+                title: 'Complete Digital Marketing Masterclass for Business Growth',
+                rating: 4.9,
+                lessons: 35,
+                students: 120
+            },
+            {
+                category: 'Technology',
+                categoryColor: 'bg-purple-100 text-purple-700',
+                instructor: 'Sarah Johnson',
+                instructorAvatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+                instructorImage: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=500&fit=crop',
+                title: 'Web Development Bootcamp: From Zero to Full Stack Developer',
+                rating: 4.8,
+                lessons: 50,
+                students: 200
+            },
+            {
+                category: 'Photography',
+                categoryColor: 'bg-pink-100 text-pink-700',
+                instructor: 'Michael Chen',
+                instructorAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+                instructorImage: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&h=500&fit=crop',
+                title: 'Professional Photography: Master Lighting and Composition',
+                rating: 4.6,
+                lessons: 25,
+                students: 85
+            },
+            {
+                category: 'Health & Fitness',
+                categoryColor: 'bg-green-100 text-green-700',
+                instructor: 'Emma Wilson',
+                instructorAvatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',
+                instructorImage: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&h=500&fit=crop',
+                title: 'Nutrition Science and Wellness Lifestyle Transformation',
+                rating: 4.9,
+                lessons: 30,
+                students: 150
+            }
+        ];
+
+        let currentIndex = 0;
+        let autoScrollInterval;
+
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            let starsHTML = '';
+
+            for (let i = 0; i < fullStars; i++) {
+                starsHTML += `
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                `;
+            }
+
+            for (let i = fullStars; i < 5; i++) {
+                starsHTML += `
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-300 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                `;
+            }
+
+            return starsHTML;
+        }
+
+        function generateProgressDots() {
+            const dotsContainer = document.getElementById('progressDots');
+            dotsContainer.innerHTML = courses.map((_, index) => `
+                <button class="dot w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all ${index === currentIndex ? 'bg-teal-700 w-6 sm:w-8' : 'bg-gray-300'}" data-index="${index}"></button>
+            `).join('');
+
+            // Add click event to dots
+            document.querySelectorAll('.dot').forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    goToSlide(index);
+                    resetAutoScroll();
+                });
+            });
+        }
+
+        function updateCourse(index) {
+            const course = courses[index];
+            const card = document.getElementById('courseCard');
+
+            // Fade out
+            card.classList.add('fade-out');
+
+            setTimeout(() => {
+                // Update content
+                document.getElementById('courseCategory').textContent = course.category;
+                document.getElementById('courseCategory').className = `inline-block px-3 sm:px-4 py-1.5 ${course.categoryColor} rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4`;
+                document.getElementById('instructorName').textContent = course.instructor;
+                document.getElementById('instructorAvatar').src = course.instructorAvatar;
+                document.getElementById('instructorMainImg').src = course.instructorImage;
+                document.getElementById('courseTitle').textContent = course.title;
+                document.getElementById('starRating').innerHTML = generateStars(course.rating);
+                document.getElementById('ratingText').textContent = `(${course.rating}/5)`;
+                document.getElementById('courseLessons').textContent = `${course.lessons} Lessons`;
+                document.getElementById('courseStudents').textContent = `${course.students} Students`;
+
+                // Update progress dots
+                generateProgressDots();
+
+                // Fade in
+                card.classList.remove('fade-out');
+            }, 300);
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % courses.length;
+            updateCourse(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + courses.length) % courses.length;
+            updateCourse(currentIndex);
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCourse(currentIndex);
+        }
+
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        function resetAutoScroll() {
+            clearInterval(autoScrollInterval);
+            startAutoScroll();
+        }
+
+        // Initialize
+        generateProgressDots();
+        startAutoScroll();
+
+        // Button event listeners
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            nextSlide();
+            resetAutoScroll();
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            prevSlide();
+            resetAutoScroll();
+        });
+
+        // Pause auto-scroll on hover
+        const card = document.getElementById('courseCard');
+        card.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        card.addEventListener('mouseleave', startAutoScroll);
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        card.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            clearInterval(autoScrollInterval);
+        });
+
+        card.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAutoScroll();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) prevSlide();
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert('Thank you for subscribing with: ' + email);
+            event.target.reset();
+        }
+    </script>
+</div>
 </body>
 </html>
