@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Events</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body
+    class=" bg-gradient-to-br from-gray-50 to-teal-50 min-h-screen p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+    <div class="max-w-7xl mx-auto sm:ps-24">
+        <!-- Header Section -->
+        <div
+            class="flex flex-col lg:flex-row justify-between items-start lg:items-center mt-12 mb-12 lg:mt-16 lg:mb-16 gap-6">
+            <div class="flex-1">
+                <div
+                    class="inline-block bg-[#fef9ea] tracking-3px shadow-sm text-gray-600 px-5 py-2.5 rounded-full text-md font-medium mb-4 border border-gray-100">
+                    Our Upcoming Event
+                </div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+                    Join Our Upcoming <span
+                        class="underline decoration-4 decoration-blue-400 underline-offset-4">Educational</span>
+                    <span class="block mt-1">Events and Workshops Today</span>
+                </h1>
+            </div>
+            <button
+                class="bg-teal-800 hover:bg-teal-900 text-white px-8 py-3.5 rounded-xl flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium">
+                View All Events
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+
+
+    <!-- Decorative Wave -->
+    <div class="hidden lg:block absolute -top-4 right-0 xl:right-20 opacity-80">
+        <svg class="w-20 xl:w-28 h-10 xl:h-14" viewBox="0 0 100 50">
+            <path d="M0 25 Q 12.5 15, 25 25 T 50 25 T 75 25 T 100 25" stroke="#FCD34D" stroke-width="5" fill="none"
+                stroke-linecap="round" />
+            <path d="M0 35 Q 12.5 25, 25 35 T 50 35 T 75 35 T 100 35" stroke="#FCD34D" stroke-width="5" fill="none"
+                stroke-linecap="round" />
+        </svg>
+    </div>
+
+    <!-- Event Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Card 1 -->
+        <div
+            class="bg-white rounded-3xl p-5 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-teal-100">
+            <div class="relative mb-5 overflow-hidden rounded-2xl group">
+                <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=400&h=300&fit=crop"
+                    alt="VR Healthcare Event"
+                    class="w-full h-52 sm:h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+                <span
+                    class="absolute bottom-4 left-4 bg-yellow-400 text-gray-900 px-4 py-2.5 rounded-xl text-sm font-bold shadow-lg">
+                    24 May 2025
+                </span>
+            </div>
+            <h3
+                class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 leading-tight hover:text-teal-700 transition-colors cursor-pointer">
+                The Future of Medical Science and Healthcare Solutions
+            </h3>
+            <div class="space-y-3 mb-6">
+                <div class="flex items-center gap-3 text-gray-600 text-sm">
+                    <div class="w-9 h-9 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke-width="2"></circle>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="font-medium">9:00 am - 7:00 pm</span>
+                </div>
+                <div class="flex items-center gap-3 text-gray-600 text-sm">
+                    <div class="w-9 h-9 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <span class="font-medium">Javits Center, New York, USA</span>
+                </div>
+            </div>
+            <button
+                class="w-full bg-gray-700 hover:bg-teal-800 text-white py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-lg group font-medium">
+                Event Details
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+            class="bg-white rounded-3xl p-5 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-teal-100">
+            <div class="relative mb-5 overflow-hidden rounded-2xl group">
+                <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=400&h=300&fit=crop"
+                    alt="Medical Conference"
+                    class="w-full h-52 sm:h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+                <span
+                    class="absolute bottom-4 left-4 bg-yellow-400 text-gray-900 px-4 py-2.5 rounded-xl text-sm font-bold shadow-lg">
+                    09 Dec 2025
+                </span>
+            </div>
+            <h3
+                class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 leading-tight hover:text-teal-700 transition-colors cursor-pointer">
+                The Future of Medical Science and Healthcare Solutions
+            </h3>
+            <div class="space-y-3 mb-6">
+                <div class="flex items-center gap-3 text-gray-600 text-sm">
+                    <div class="w-9 h-9 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke-width="2"></circle>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="font-medium">9:00 am - 7:00 pm</span>
+                </div>
+                <div class="flex items-center gap-3 text-gray-600 text-sm">
+                    <div class="w-9 h-9 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <span class="font-medium">Javits Center, New York, USA</span>
+                </div>
+            </div>
+            <button
+                class="w-full bg-gray-700 hover:bg-teal-800 text-white py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-lg group font-medium">
+                Event Details
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+            class="bg-white rounded-3xl p-5 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-teal-100">
+            <div class="relative mb-5 overflow-hidden rounded-2xl group">
+                <img src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=400&h=300&fit=crop"
+                    alt="Medical Presentation"
+                    class="w-full h-52 sm:h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+                <span
+                    class="absolute bottom-4 left-4 bg-yellow-400 text-gray-900 px-4 py-2.5 rounded-xl text-sm font-bold shadow-lg">
+                    19 Dec 2025
+                </span>
+            </div>
+            <h3
+                class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 leading-tight hover:text-teal-700 transition-colors cursor-pointer">
+                The Future of Medical Science and Healthcare Solutions
+            </h3>
+            <div class="space-y-3 mb-6">
+                <div class="flex items-center gap-3 text-gray-600 text-sm">
+                    <div class="w-9 h-9 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke-width="2"></circle>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="font-medium">9:00 am - 7:00 pm</span>
+                </div>
+                <div class="flex items-center gap-3 text-gray-600 text-sm">
+                    <div class="w-9 h-9 bg-teal-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <span class="font-medium">Javits Center, New York, USA</span>
+                </div>
+            </div>
+            <button
+                class="w-full bg-gray-700 hover:bg-teal-800 text-white py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-lg group font-medium">
+                Event Details
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

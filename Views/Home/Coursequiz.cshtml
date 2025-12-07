@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Quiz - Educeet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+        .question-card {
+            transition: all 0.3s ease;
+        }
+        .option-card {
+            transition: all 0.2s ease;
+        }
+        .option-card:hover {
+            transform: translateX(4px);
+        }
+        .option-card.selected {
+            border-color: #14b8a6;
+            background-color: #f0fdfa;
+        }
+        .option-card.correct {
+            border-color: #10b981;
+            background-color: #d1fae5;
+        }
+        .option-card.incorrect {
+            border-color: #ef4444;
+            background-color: #fee2e2;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="relative pt-4" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50 py-2 rounded-2xl">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="/" aria-label="Educeet Home">
+                        <img src="images/logo.png" alt="Educeet Logo" class="h-12 w-auto"
+                            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjU2IiB2aWV3Qm94PSIwIDAgMTQwIDU2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNDAiIGhlaWdodD0iNTYiIHJ4PSI4IiBmaWxsPSIjMTRiOGE2Ii8+PHRleHQgeD0iMjAiIHk9IjM1IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCI+RWR1Y2VldDwvdGV4dD48L3N2Zz4='">
+                    </a>
+                </div>
+
+                <!-- Navigation Links - Desktop -->
+                <div class="hidden md:flex items-center flex-1 justify-center">
+                    <ul class="flex items-center space-x-6">
+                        <li>
+                            <a href="/" class="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors duration-200">
+                                Home
+                            </a>
+                        </li>
+
+                        <!-- Pages Dropdown -->
+                        <li class="relative dropdown">
+                            <a class="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors duration-200 flex items-center cursor-pointer" aria-expanded="false">
+                                Pages
+                                <i class="fas fa-chevron-down ml-1 text-xs" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-4 z-10 hidden" role="menu">
+                                <a href="/Home/About" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">About Us</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Our Team</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Testimonials</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">FAQs</a>
+                            </div>
+                        </li>
+
+                        <!-- Courses Dropdown -->
+                        <li class="relative dropdown">
+                            <a href="" class="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors duration-200 flex items-center cursor-pointer" aria-expanded="false">
+                                Courses
+                                <i class="fas fa-chevron-down ml-1 text-xs" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-10 hidden" role="menu">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Web Development</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Data Science</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Digital Marketing</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Graphic Design</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Business Management</a>
+                            </div>
+                        </li>
+
+                        <!-- Blog Dropdown -->
+                        <li class="relative dropdown">
+                            <a href="#" class="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors duration-200 flex items-center cursor-pointer" aria-expanded="false">
+                                Blog
+                                <i class="fas fa-chevron-down ml-1 text-xs" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden" role="menu">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Latest Articles</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Tutorials</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Industry News</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600" role="menuitem">Student Stories</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#" class="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors duration-200">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right Section - Desktop -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <!-- Search Icon -->
+                    <button class="text-gray-600 hover:text-teal-600 transition-colors duration-200 p-2" aria-label="Search">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+
+                    <!-- Login/Register -->
+                    <a href="#" class="text-gray-700 hover:text-teal-600 transition-colors duration-200 whitespace-nowrap">
+                        <span class="text-md font-medium">Login / Registration</span>
+                    </a>
+
+                    <!-- Apply Now Button -->
+                    <button class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg font-medium flex items-center space-x-2 transition-colors duration-200 shadow-sm whitespace-nowrap">
+                        <span>Apply Now</span>
+                        <i class="fas fa-arrow-right text-sm" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuButton" class="text-gray-700 hover:text-teal-600 p-2" aria-label="Toggle mobile menu" aria-expanded="false">
+                        <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t border-gray-200 hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="text-gray-700 hover:text-teal-600 block px-3 py-2 text-base font-medium">Home</a>
+
+                <!-- Pages Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle text-gray-700 hover:text-teal-600 w-full text-left px-3 py-2 text-base font-medium flex justify-between items-center" aria-expanded="false">
+                        Pages
+                        <i class="fas fa-chevron-down text-xs" aria-hidden="true"></i>
+                    </button>
+                    <div class="mobile-dropdown-menu pl-4 hidden">
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">About Us</a>
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Our Team</a>
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Testimonials</a>
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">FAQs</a>
+                    </div>
+                </div>
+
+                <!-- Courses Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle text-gray-700 hover:text-teal-600 w-full text-left px-3 py-2 text-base font-medium flex justify-between items-center" aria-expanded="false">
+                        Courses
+                        <i class="fas fa-chevron-down text-xs" aria-hidden="true"></i>
+                    </button>
+                    <div class="mobile-dropdown-menu pl-4 hidden">
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Web Development</a>
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Data Science</a>
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Digital Marketing</a>
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Graphic Design</a>
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Business Management</a>
+                    </div>
+                </div>
+
+                <!-- Blog Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle text-gray-700 hover:text-teal-600 w-full text-left px-3 py-2 text-base font-medium flex justify-between items-center" aria-expanded="false">
+                        Blog
+                        <i class="fas fa-chevron-down text-xs" aria-hidden="true"></i>
+                    </button>
+                    <div class="mobile-dropdown-menu pl-4 hidden">
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Latest Articles</a>
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Tutorials</a>
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Industry News</a>
+                        <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:text-teal-600">Student Stories</a>
+                    </div>
+                </div>
+
+                <a href="#" class="text-gray-700 hover:text-teal-600 block px-3 py-2 text-base font-medium">Contact</a>
+
+                <!-- Mobile Actions -->
+                <div class="pt-4 pb-3 border-t border-gray-200">
+                    <div class="flex items-center px-3 py-2 space-x-4">
+                        <button class="text-gray-600 hover:text-teal-600" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                        <a href="#" class="text-gray-700 text-sm font-medium">Login / Registration</a>
+                    </div>
+                    <button class="w-full mt-3 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center space-x-2 transition-colors duration-200">
+                        <span>Apply Now</span>
+                        <i class="fas fa-arrow-right text-sm" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class='bg-teal-600 py-3 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 rounded-b-2xl relative -mt-1'></div>
+    </nav>
+
+    <!-- Quiz Container -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Quiz Header -->
+        <div class="bg-white rounded-2xl shadow-sm p-6 mb-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Web Development Fundamentals</h1>
+                    <p class="text-gray-600">Test your knowledge of HTML, CSS, and JavaScript basics</p>
+                </div>
+                <div class="mt-4 sm:mt-0 flex items-center space-x-4">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-teal-600" id="timer">15:00</div>
+                        <div class="text-xs text-gray-500">Time Left</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="progress-bar bg-teal-600 h-2.5 rounded-full" id="progressBar" style="width: 0%"></div>
+            </div>
+            <div class="flex justify-between mt-2 text-sm text-gray-600">
+                <span>Question <span id="currentQuestion">1</span> of <span id="totalQuestions">5</span></span>
+                <span id="progressText">0% Complete</span>
+            </div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="bg-white rounded-2xl shadow-sm p-6 sm:p-8 mb-6 question-card" id="questionCard">
+            <div class="mb-6">
+                <span class="inline-block bg-teal-100 text-teal-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                    Multiple Choice
+                </span>
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4" id="questionText">
+                    What does HTML stand for?
+                </h2>
+            </div>
+
+            <!-- Options -->
+            <div class="space-y-3" id="optionsContainer">
+                <!-- Options will be dynamically generated -->
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex flex-col sm:flex-row justify-between gap-4">
+            <button id="prevBtn" class="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Previous
+            </button>
+            <button id="nextBtn" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                Next
+                <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+            <button id="submitBtn" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors duration-200 hidden">
+                Submit Quiz
+                <i class="fas fa-check ml-2"></i>
+            </button>
+        </div>
+
+        <!-- Results Card (Hidden Initially) -->
+        <div id="resultsCard" class="bg-white rounded-2xl shadow-sm p-6 sm:p-8 hidden">
+            <div class="text-center mb-6">
+                <div class="w-24 h-24 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-trophy text-4xl text-teal-600"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Quiz Completed!</h2>
+                <p class="text-gray-600">Here are your results</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                <div class="bg-teal-50 rounded-xl p-4 text-center">
+                    <div class="text-3xl font-bold text-teal-600" id="scorePercent">0%</div>
+                    <div class="text-sm text-gray-600">Score</div>
+                </div>
+                <div class="bg-green-50 rounded-xl p-4 text-center">
+                    <div class="text-3xl font-bold text-green-600" id="correctAnswers">0</div>
+                    <div class="text-sm text-gray-600">Correct</div>
+                </div>
+                <div class="bg-red-50 rounded-xl p-4 text-center">
+                    <div class="text-3xl font-bold text-red-600" id="incorrectAnswers">0</div>
+                    <div class="text-sm text-gray-600">Incorrect</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button onclick="location.reload()" class="flex-1 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-colors duration-200">
+                    <i class="fas fa-redo mr-2"></i>
+                    Retake Quiz
+                </button>
+                <button class="flex-1 px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg font-medium transition-colors duration-200">
+                    <i class="fas fa-home mr-2"></i>
+                    Back to Courses
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz Data
+        const quizData = [
+            {
+                question: "What does HTML stand for?",
+                options: [
+                    "Hyper Text Markup Language",
+                    "High Tech Modern Language",
+                    "Home Tool Markup Language",
+                    "Hyperlinks and Text Markup Language"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which CSS property is used to change the text color?",
+                options: [
+                    "text-color",
+                    "font-color",
+                    "color",
+                    "text-style"
+                ],
+                correct: 2
+            },
+            {
+                question: "What is the correct syntax for referring to an external JavaScript file?",
+                options: [
+                    "<script href='app.js'>",
+                    "<script name='app.js'>",
+                    "<script src='app.js'>",
+                    "<script file='app.js'>"
+                ],
+                correct: 2
+            },
+            {
+                question: "Which HTML tag is used to define an internal style sheet?",
+                options: [
+                    "<style>",
+                    "<css>",
+                    "<script>",
+                    "<link>"
+                ],
+                correct: 0
+            },
+            {
+                question: "What does CSS stand for?",
+                options: [
+                    "Computer Style Sheets",
+                    "Cascading Style Sheets",
+                    "Creative Style Sheets",
+                    "Colorful Style Sheets"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let timeLeft = 900; // 15 minutes in seconds
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile dropdown toggles
+        document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const menu = this.nextElementSibling;
+                menu.classList.toggle('hidden');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        // Timer
+        const timerInterval = setInterval(() => {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                submitQuiz();
+            }
+        }, 1000);
+
+        // Load question
+        function loadQuestion(index) {
+            const question = quizData[index];
+            document.getElementById('questionText').textContent = question.question;
+            document.getElementById('currentQuestion').textContent = index + 1;
+            document.getElementById('totalQuestions').textContent = quizData.length;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, i) => {
+                const optionCard = document.createElement('div');
+                optionCard.className = 'option-card border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-teal-600';
+                optionCard.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-3 flex-shrink-0">
+                            <div class="w-3 h-3 rounded-full bg-teal-600 hidden"></div>
+                        </div>
+                        <span class="text-gray-700">${option}</span>
+                    </div>
+                `;
+                
+                if (userAnswers[index] === i) {
+                    optionCard.classList.add('selected');
+                    optionCard.querySelector('.w-3').classList.remove('hidden');
+                }
+                
+                optionCard.addEventListener('click', () => selectOption(i));
+                optionsContainer.appendChild(optionCard);
+            });
+            
+            updateProgress();
+            updateButtons();
+        }
+
+        // Select option
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestionIndex] = optionIndex;
+            loadQuestion(currentQuestionIndex);
+        }
+
+        // Update progress
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / quizData.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = Math.round(progress) + '% Complete';
+        }
+
+        // Update buttons
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            if (currentQuestionIndex === quizData.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+        }
+
+        // Navigation
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion(currentQuestionIndex);
+            }
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion(currentQuestionIndex);
+            }
+        });
+
+        document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+
+        // Submit quiz
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            
+            let correct = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizData[index].correct) {
+                    correct++;
+                }
+            });
+            
+            const incorrect = quizData.length - correct;
+            const percentage = Math.round((correct / quizData.length) * 100);
+            
+            document.getElementById('scorePercent').textContent = percentage + '%';
+            document.getElementById('correctAnswers').textContent = correct;
+            document.getElementById('incorrectAnswers').textContent = incorrect;
+            
+            document.getElementById('questionCard').classList.add('hidden');
+            document.querySelector('.flex.flex-col.sm\\:flex-row.justify-between').classList.add('hidden');
+            document.getElementById('resultsCard').classList.remove('hidden');
+        }
+
+        // Initialize
+        loadQuestion(0);
+    </script>
+</body>
+</html>
