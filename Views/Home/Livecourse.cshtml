@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Fundamentals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <button onclick="history.back()" class="text-gray-600 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <div>
+                        <h1 class="text-lg sm:text-xl font-bold text-gray-900">Web Development Fundamentals</h1>
+                        <p class="text-xs text-gray-500 hidden sm:block">Master frontend development from scratch</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button class="p-2 text-gray-600 hover:text-gray-900 rounded-full hover:bg-gray-100">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                    </button>
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium transition duration-200 flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                        Enroll Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Course Stats Bar -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white rounded-lg shadow p-4">
+                <div class="flex items-center">
+                    <div class="p-2 bg-blue-100 rounded-lg">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-gray-500">Lessons</p>
+                        <p class="text-lg font-bold text-gray-900">11</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-4">
+                <div class="flex items-center">
+                    <div class="p-2 bg-green-100 rounded-lg">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-gray-500">Duration</p>
+                        <p class="text-lg font-bold text-gray-900">10h 30m</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-4">
+                <div class="flex items-center">
+                    <div class="p-2 bg-purple-100 rounded-lg">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-gray-500">Students</p>
+                        <p class="text-lg font-bold text-gray-900">5,432</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-4">
+                <div class="flex items-center">
+                    <div class="p-2 bg-yellow-100 rounded-lg">
+                        <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-gray-500">Rating</p>
+                        <p class="text-lg font-bold text-gray-900">4.8/5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Main Content -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Video Player -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="relative aspect-video bg-gray-900">
+                        <video id="courseVideo" class="w-full h-full" controls poster="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
+                            <source id="videoSource" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="absolute top-4 right-4">
+                            <button id="fullscreenBtn" class="p-2 bg-black bg-opacity-50 text-white rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <h2 id="videoTitle" class="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-0">1. Introduction to HTML & CSS</h2>
+                            <div class="flex items-center space-x-3">
+                                <button id="bookmarkBtn" class="p-2 text-gray-500 hover:text-blue-600 rounded-full hover:bg-blue-50">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                    </svg>
+                                </button>
+                                <button id="speedBtn" class="px-3 py-1 text-sm border border-gray-300 rounded-lg hover:bg-gray-50">1x</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
+                            <span class="flex items-center">
+                                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span id="videoDuration">45 min</span>
+                            </span>
+                            <span class="flex items-center">
+                                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                                <span id="videoViews">12,453 views</span>
+                            </span>
+                            <span class="flex items-center">
+                                <svg class="w-5 h-5 mr-1 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <span>4.8</span>
+                            </span>
+                        </div>
+                        <p id="videoDescription" class="text-gray-700 leading-relaxed">
+                            Learn the fundamentals of web development with HTML and CSS. This comprehensive lesson covers semantic HTML tags, CSS styling, layouts, and responsive design principles that will set you up for success as a web developer.
+                        </p>
+                        
+                        <!-- Video Controls -->
+                        <div class="mt-6 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <button id="prevVideoBtn" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-sm font-medium flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                                    </svg>
+                                    Previous
+                                </button>
+                                <button id="nextVideoBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium flex items-center">
+                                    Next
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button id="completeLessonBtn" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm font-medium flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Mark Complete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200">
+                    <div class="border-b border-gray-200">
+                        <nav class="flex -mb-px overflow-x-auto">
+                            <button onclick="switchTab('overview')" class="tab-btn active px-4 sm:px-6 py-4 text-sm font-medium border-b-2 border-blue-600 text-blue-600 whitespace-nowrap">
+                                <i class="fas fa-info-circle mr-2"></i>Overview
+                            </button>
+                            <button onclick="switchTab('resources')" class="tab-btn px-4 sm:px-6 py-4 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap">
+                                <i class="fas fa-file-alt mr-2"></i>Resources
+                            </button>
+                            <button onclick="switchTab('discussion')" class="tab-btn px-4 sm:px-6 py-4 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap">
+                                <i class="fas fa-comments mr-2"></i>Discussion
+                            </button>
+                            <button onclick="switchTab('notes')" class="tab-btn px-4 sm:px-6 py-4 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap">
+                                <i class="fas fa-sticky-note mr-2"></i>Notes
+                            </button>
+                            <button onclick="switchTab('qa')" class="tab-btn px-4 sm:px-6 py-4 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap">
+                                <i class="fas fa-question-circle mr-2"></i>Q&A
+                            </button>
+                        </nav>
+                    </div>
+                    
+                    <div id="overview" class="tab-content p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">What you'll learn</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <span class="text-gray-700">HTML5 semantic elements and document structure</span>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <span class="text-gray-700">CSS styling techniques and best practices</span>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <span class="text-gray-700">Responsive design with media queries</span>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                                <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <span class="text-gray-700">CSS Flexbox and Grid layouts</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                            <h4 class="font-bold text-blue-800 mb-2 flex items-center">
+                                <i class="fas fa-lightbulb mr-2"></i> Pro Tip
+                            </h4>
+                            <p class="text-blue-700">Practice what you learn by building small projects along the way. Try recreating popular website components to reinforce your skills.</p>
+                        </div>
+                        
+                        <h4 class="font-bold text-gray-900 mb-3">Instructor</h4>
+                        <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" 
+                                 class="w-12 h-12 rounded-full mr-4" alt="Instructor">
+                            <div>
+                                <h5 class="font-bold text-gray-900">Alex Johnson</h5>
+                                <p class="text-sm text-gray-600">Senior Frontend Developer at TechCorp</p>
+                                <div class="flex items-center mt-1">
+                                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2">5+ Years Experience</span>
+                                    <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">45,000+ Students</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="resources" class="tab-content hidden p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Course Resources</h3>
+                        <p class="text-gray-600 mb-6">Download these resources to supplement your learning experience</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200">
+                                <div class="flex items-center">
+                                    <div class="p-3 bg-red-100 rounded-lg mr-4">
+                                        <i class="fas fa-file-pdf text-red-600"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-gray-900">Lesson Slides.pdf</h5>
+                                        <p class="text-sm text-gray-600">Complete presentation slides from this lesson</p>
+                                        <span class="text-xs text-gray-500">2.4 MB • Updated 2 days ago</span>
+                                    </div>
+                                </div>
+                                <button class="p-2 text-gray-500 hover:text-blue-600 rounded-full hover:bg-white">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200">
+                                <div class="flex items-center">
+                                    <div class="p-3 bg-blue-100 rounded-lg mr-4">
+                                        <i class="fas fa-file-archive text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-gray-900">Code Examples.zip</h5>
+                                        <p class="text-sm text-gray-600">All code examples shown in this lesson</p>
+                                        <span class="text-xs text-gray-500">5.2 MB • Updated 1 week ago</span>
+                                    </div>
+                                </div>
+                                <button class="p-2 text-gray-500 hover:text-blue-600 rounded-full hover:bg-white">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200">
+                                <div class="flex items-center">
+                                    <div class="p-3 bg-green-100 rounded-lg mr-4">
+                                        <i class="fas fa-link text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-gray-900">Useful Links & References</h5>
+                                        <p class="text-sm text-gray-600">Curated list of additional learning resources</p>
+                                        <span class="text-xs text-gray-500">Webpage • Always updated</span>
+                                    </div>
+                                </div>
+                                <button class="p-2 text-gray-500 hover:text-blue-600 rounded-full hover:bg-white">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="discussion" class="tab-content hidden p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Discussion</h3>
+                        <p class="text-gray-600 mb-6">Join the conversation with other students</p>
+                        
+                        <div class="mb-6">
+                            <textarea class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                                      rows="4" placeholder="Ask a question or share your thoughts..."></textarea>
+                            <div class="flex justify-between items-center mt-3">
+                                <div class="flex space-x-2">
+                                    <button class="p-2 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100">
+                                        <i class="fas fa-paperclip"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                    <button class="p-2 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100">
+                                        <i class="fas fa-smile"></i>
+                                    </button>
+                                </div>
+                                <button class="px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
+                                    Post Comment
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="border-b border-gray-200 pb-6">
+                                <div class="flex items-start mb-3">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" 
+                                         class="w-10 h-10 rounded-full mr-3" alt="User">
+                                    <div>
+                                        <h5 class="font-bold text-gray-900">Sarah Miller</h5>
+                                        <p class="text-sm text-gray-600">2 hours ago</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 mb-3">Great explanation of semantic HTML! I've been using divs for everything, but now I see how proper semantics can improve accessibility.</p>
+                                <div class="flex items-center space-x-4">
+                                    <button class="text-sm text-gray-600 hover:text-blue-600 flex items-center">
+                                        <i class="fas fa-thumbs-up mr-1"></i> 24
+                                    </button>
+                                    <button class="text-sm text-gray-600 hover:text-blue-600">Reply</button>
+                                </div>
+                            </div>
+                            
+                            <div class="border-b border-gray-200 pb-6">
+                                <div class="flex items-start mb-3">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" 
+                                         class="w-10 h-10 rounded-full mr-3" alt="User">
+                                    <div>
+                                        <h5 class="font-bold text-gray-900">Michael Chen</h5>
+                                        <p class="text-sm text-gray-600">1 day ago</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 mb-3">Can someone explain the difference between section and article tags? When should I use one over the other?</p>
+                                <div class="flex items-center space-x-4">
+                                    <button class="text-sm text-gray-600 hover:text-blue-600 flex items-center">
+                                        <i class="fas fa-thumbs-up mr-1"></i> 12
+                                    </button>
+                                    <button class="text-sm text-gray-600 hover:text-blue-600">Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="notes" class="tab-content hidden p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">My Notes</h3>
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-5 mb-6">
+                            <textarea class="w-full bg-transparent border-none focus:ring-0 text-gray-700" rows="6" placeholder="Start taking notes here... You can save them for later review."></textarea>
+                            <div class="flex justify-between items-center mt-4">
+                                <span class="text-sm text-gray-600">Auto-saved</span>
+                                <button class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 font-medium">
+                                    <i class="fas fa-save mr-2"></i>Save Note
+                                </button>
+                            </div>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-3">Previous Notes</h4>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h5 class="font-medium text-gray-900">HTML Structure Notes</h5>
+                                    <span class="text-xs text-gray-500">March 15</span>
+                                </div>
+                                <p class="text-gray-700 text-sm">Remember: Always start with &lt;!DOCTYPE html&gt; declaration. Use semantic tags for better accessibility and SEO.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="qa" class="tab-content hidden p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Questions & Answers</h3>
+                        <div class="mb-6">
+                            <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                                   placeholder="Search questions or ask your own...">
+                        </div>
+                        <div class="space-y-6">
+                            <div class="p-4 bg-blue-50 rounded-lg">
+                                <div class="flex items-start mb-2">
+                                    <div class="p-2 bg-blue-100 rounded-lg mr-3">
+                                        <i class="fas fa-question text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-900">What's the difference between inline and block elements?</h5>
+                                        <p class="text-sm text-gray-600 mb-2">Asked by James Wilson • 3 answers</p>
+                                        <button class="text-blue-600 text-sm font-medium">View Answers</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-green-50 rounded-lg">
+                                <div class="flex items-start mb-2">
+                                    <div class="p-2 bg-green-100 rounded-lg mr-3">
+                                        <i class="fas fa-check text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-900">How do I center a div vertically and horizontally?</h5>
+                                        <p class="text-sm text-gray-600 mb-2">Asked by Lisa Park • Answered by instructor</p>
+                                        <button class="text-green-600 text-sm font-medium">View Solution</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Related Courses Section -->
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">Continue Learning</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Course 1 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition duration-200">
+                            <div class="h-40 bg-gradient-to-r from-purple-500 to-indigo-600 relative">
+                                <div class="absolute top-3 left-3">
+                                    <span class="px-2 py-1 bg-white bg-opacity-90 text-purple-700 text-xs font-bold rounded">ADVANCED</span>
+                                </div>
+                                <div class="absolute bottom-3 right-3">
+                                    <span class="px-2 py-1 bg-black bg-opacity-50 text-white text-xs rounded">8h 20m</span>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-gray-900 mb-2">Modern JavaScript ES6+</h4>
+                                <p class="text-sm text-gray-600 mb-3">Master advanced JavaScript concepts, async/await, and modern frameworks</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-500 text-sm mr-1"></i>
+                                        <span class="text-sm font-medium">4.9</span>
+                                    </div>
+                                    <button class="text-blue-600 text-sm font-medium hover:text-blue-800">View Course →</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Course 2 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition duration-200">
+                            <div class="h-40 bg-gradient-to-r from-green-500 to-teal-600 relative">
+                                <div class="absolute top-3 left-3">
+                                    <span class="px-2 py-1 bg-white bg-opacity-90 text-green-700 text-xs font-bold rounded">FRAMEWORK</span>
+                                </div>
+                                <div class="absolute bottom-3 right-3">
+                                    <span class="px-2 py-1 bg-black bg-opacity-50 text-white text-xs rounded">12h 15m</span>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-gray-900 mb-2">React.js Complete Guide</h4>
+                                <p class="text-sm text-gray-600 mb-3">Build modern web applications with React, hooks, context API, and Redux</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-500 text-sm mr-1"></i>
+                                        <span class="text-sm font-medium">4.8</span>
+                                    </div>
+                                    <button class="text-blue-600 text-sm font-medium hover:text-blue-800">View Course →</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Course 3 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition duration-200">
+                            <div class="h-40 bg-gradient-to-r from-orange-500 to-red-500 relative">
+                                <div class="absolute top-3 left-3">
+                                    <span class="px-2 py-1 bg-white bg-opacity-90 text-orange-700 text-xs font-bold rounded">BACKEND</span>
+                                </div>
+                                <div class="absolute bottom-3 right-3">
+                                    <span class="px-2 py-1 bg-black bg-opacity-50 text-white text-xs rounded">10h 45m</span>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-gray-900 mb-2">Node.js & Express</h4>
+                                <p class="text-sm text-gray-600 mb-3">Learn to build scalable backend servers with Node.js, Express, and MongoDB</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-500 text-sm mr-1"></i>
+                                        <span class="text-sm font-medium">4.7</span>
+                                    </div>
+                                    <button class="text-blue-600 text-sm font-medium hover:text-blue-800">View Course →</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Course 4 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition duration-200">
+                            <div class="h-40 bg-gradient-to-r from-pink-500 to-rose-600 relative">
+                                <div class="absolute top-3 left-3">
+                                    <span class="px-2 py-1 bg-white bg-opacity-90 text-pink-700 text-xs font-bold rounded">UI/UX</span>
+                                </div>
+                                <div class="absolute bottom-3 right-3">
+                                    <span class="px-2 py-1 bg-black bg-opacity-50 text-white text-xs rounded">6h 30m</span>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-gray-900 mb-2">UI/UX Design Fundamentals</h4>
+                                <p class="text-sm text-gray-600 mb-3">Learn user interface design principles, wireframing, and prototyping</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-500 text-sm mr-1"></i>
+                                        <span class="text-sm font-medium">4.9</span>
+                                    </div>
+                                    <button class="text-blue-600 text-sm font-medium hover:text-blue-800">View Course →</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Course 5 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition duration-200">
+                            <div class="h-40 bg-gradient-to-r from-cyan-500 to-blue-600 relative">
+                                <div class="absolute top-3 left-3">
+                                    <span class="px-2 py-1 bg-white bg-opacity-90 text-cyan-700 text-xs font-bold rounded">TOOL</span>
+                                </div>
+                                <div class="absolute bottom-3 right-3">
+                                    <span class="px-2 py-1 bg-black bg-opacity-50 text-white text-xs rounded">4h 20m</span>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-gray-900 mb-2">Git & GitHub Mastery</h4>
+                                <p class="text-sm text-gray-600 mb-3">Version control, collaboration workflows, and open source contribution</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-500 text-sm mr-1"></i>
+                                        <span class="text-sm font-medium">4.8</span>
+                                    </div>
+                                    <button class="text-blue-600 text-sm font-medium hover:text-blue-800">View Course →</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Course 6 -->
+                        <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition duration-200">
+                            <div class="h-40 bg-gradient-to-r from-indigo-500 to-purple-700 relative">
+                                <div class="absolute top-3 left-3">
+                                    <span class="px-2 py-1 bg-white bg-opacity-90 text-indigo-700 text-xs font-bold rounded">FULLSTACK</span>
+                                </div>
+                                <div class="absolute bottom-3 right-3">
+                                    <span class="px-2 py-1 bg-black bg-opacity-50 text-white text-xs rounded">25h 10m</span>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-gray-900 mb-2">Full Stack Development</h4>
+                                <p class="text-sm text-gray-600 mb-3">End-to-end web development with MERN stack (MongoDB, Express, React, Node)</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-500 text-sm mr-1"></i>
+                                        <span class="text-sm font-medium">4.9</span>
+                                    </div>
+                                    <button class="text-blue-600 text-sm font-medium hover:text-blue-800">View Course →</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar with 11 Video Courses -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-5 sticky top-24">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-bold text-gray-900">Course Content</h3>
+                        <span class="text-sm text-gray-500">11 Lessons</span>
+                    </div>
+                    
+                    <!-- Search within course -->
+                    <div class="mb-6">
+                        <div class="relative">
+                            <input type="text" class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm" 
+                                   placeholder="Search in course...">
+                            <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Course video list with scrollable container -->
+                    <div class="max-h-[500px] overflow-y-auto pr-2 -mr-2 mb-6">
+                        <div class="space-y-2">
+                            <!-- Video items will be generated here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Section -->
+                    <div class="pt-6 border-t border-gray-200">
+                        <div class="flex items-center justify-between text-sm mb-2">
+                            <span class="text-gray-600">Your Progress</span>
+                            <span class="font-semibold text-gray-900">9%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-3">
+                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2.5 rounded-full" style="width: 9%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-4">1 of 11 lessons completed</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <button class="px-4 py-2.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm font-medium flex items-center">
+                                <i class="fas fa-download mr-2"></i>
+                                Download All
+                            </button>
+                            <button class="px-4 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium">
+                                <i class="fas fa-certificate mr-2"></i>
+                                Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Resources -->
+                <div class="mt-6">
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Learning Path</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
+                                <div class="p-2 bg-blue-100 rounded-lg mr-3">
+                                    <i class="fas fa-flag text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium text-gray-900">Beginner Path</h5>
+                                    <p class="text-xs text-gray-600">HTML/CSS → JavaScript → React</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                <div class="p-2 bg-gray-200 rounded-lg mr-3">
+                                    <i class="fas fa-chart-line text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium text-gray-900">Intermediate Path</h5>
+                                    <p class="text-xs text-gray-600">Node.js → Databases → APIs</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                <div class="p-2 bg-gray-200 rounded-lg mr-3">
+                                    <i class="fas fa-rocket text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium text-gray-900">Advanced Path</h5>
+                                    <p class="text-xs text-gray-600">Testing → DevOps → Architecture</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-white rounded-xl shadow-lg border border-gray-200 p-5">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Upcoming Live Sessions</h3>
+                        <div class="space-y-4">
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-100">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-video text-purple-600 mr-2"></i>
+                                    <span class="text-sm font-medium text-purple-800">Live Q&A Session</span>
+                                </div>
+                                <p class="text-xs text-gray-700 mb-2">Get your questions answered by the instructor</p>
+                                <div class="flex items-center text-xs text-gray-600">
+                                    <i class="far fa-calendar mr-1"></i>
+                                    <span>Tomorrow, 6:00 PM EST</span>
+                                </div>
+                            </div>
+                            <div class="p-3 bg-green-50 rounded-lg border border-green-100">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-laptop-code text-green-600 mr-2"></i>
+                                    <span class="text-sm font-medium text-green-800">Coding Workshop</span>
+                                </div>
+                                <p class="text-xs text-gray-700 mb-2">Hands-on project building session</p>
+                                <div class="flex items-center text-xs text-gray-600">
+                                    <i class="far fa-calendar mr-1"></i>
+                                    <span>Friday, 3:00 PM EST</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Bottom Bar -->
+    <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-3 px-4 z-10 shadow-lg">
+        <div class="flex items-center justify-between">
+            <button id="mobilePrevBtn" class="flex flex-col items-center text-gray-600 hover:text-blue-600 p-2">
+                <i class="fas fa-chevron-left mb-1"></i>
+                <span class="text-xs">Previous</span>
+            </button>
+            <button id="mobilePlayBtn" class="flex flex-col items-center text-blue-600 p-2">
+                <i class="fas fa-play-circle text-xl mb-1"></i>
+                <span class="text-xs">Play</span>
+            </button>
+            <button id="mobileNextBtn" class="flex flex-col items-center text-gray-600 hover:text-blue-600 p-2">
+                <i class="fas fa-chevron-right mb-1"></i>
+                <span class="text-xs">Next</span>
+            </button>
+            <button onclick="switchTab('notes')" class="flex flex-col items-center text-gray-600 hover:text-blue-600 p-2">
+                <i class="fas fa-sticky-note mb-1"></i>
+                <span class="text-xs">Notes</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-gray-900">Course Certificate</h3>
+                <button onclick="closeModal()" class="p-2 hover:bg-gray-100 rounded-full">
+                    <i class="fas fa-times text-gray-600"></i>
+                </button>
+            </div>
+            <div class="text-center mb-6">
+                <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-certificate text-white text-3xl"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900 mb-2">Certificate of Completion</h4>
+                <p class="text-gray-600 mb-4">Will be awarded upon completing all 11 lessons</p>
+                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                    <p class="text-sm text-gray-700">Complete all lessons and pass the final assessment to earn your certificate.</p>
+                </div>
+                <button class="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-medium hover:opacity-90">
+                    Continue Learning
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced course video data
+        const courseVideos = [
+            {
+                title: "1. Introduction to HTML & CSS",
+                description: "Learn the fundamentals of web development with HTML and CSS. This comprehensive lesson covers semantic HTML tags, CSS styling, layouts, and responsive design principles that will set you up for success as a web developer.",
+                duration: "45 min",
+                views: "12,453 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                completed: true
+            },
+            {
+                title: "2. HTML Semantic Elements",
+                description: "Master the art of semantic HTML to create accessible, SEO-friendly web pages. Learn about header, footer, article, section, nav, and other semantic tags that give meaning to your content.",
+                duration: "38 min",
+                views: "10,892 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+                completed: false
+            },
+            {
+                title: "3. CSS Selectors & Box Model",
+                description: "Deep dive into CSS selectors and the box model. Learn about different selector types, specificity, margin, padding, border, and how they affect layout and spacing.",
+                duration: "52 min",
+                views: "9,734 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+                completed: false
+            },
+            {
+                title: "4. Flexbox Layouts",
+                description: "Learn CSS Flexbox to create flexible and responsive layouts. Master container and item properties to build complex layouts with minimal code.",
+                duration: "41 min",
+                views: "8,921 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+                completed: false
+            },
+            {
+                title: "5. CSS Grid System",
+                description: "Explore CSS Grid to create two-dimensional layouts. Learn grid containers, grid items, and how to build complex responsive layouts with ease.",
+                duration: "49 min",
+                views: "7,845 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+                completed: false
+            },
+            {
+                title: "6. Responsive Design Principles",
+                description: "Master responsive web design techniques. Learn about media queries, responsive units, mobile-first approach, and creating websites that work on all devices.",
+                duration: "56 min",
+                views: "7,123 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                completed: false
+            },
+            {
+                title: "7. JavaScript Basics",
+                description: "Introduction to JavaScript programming. Learn variables, data types, operators, functions, and control structures to add interactivity to your websites.",
+                duration: "1h 10m",
+                views: "6,892 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+                completed: false
+            },
+            {
+                title: "8. DOM Manipulation",
+                description: "Learn how to manipulate the Document Object Model (DOM) with JavaScript. Select elements, modify content, change styles, and handle events dynamically.",
+                duration: "1h 5m",
+                views: "5,734 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+                completed: false
+            },
+            {
+                title: "9. Event Handling",
+                description: "Master JavaScript event handling. Learn about event listeners, event propagation, preventing default behavior, and creating interactive web applications.",
+                duration: "48 min",
+                views: "5,213 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+                completed: false
+            },
+            {
+                title: "10. Introduction to APIs",
+                description: "Learn about Application Programming Interfaces (APIs). Understand REST APIs, fetch data from external sources, and integrate third-party services into your applications.",
+                duration: "1h 15m",
+                views: "4,892 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+                completed: false
+            },
+            {
+                title: "11. Final Project Workshop",
+                description: "Bring everything together in a final project. Build a complete responsive website from scratch, applying all the concepts learned throughout the course.",
+                duration: "1h 30m",
+                views: "3,456 views",
+                videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",
+                completed: false
+            }
+        ];
+
+        let currentVideoIndex = 0;
+        let playbackSpeed = 1;
+        let isBookmarked = false;
+
+        // DOM Elements
+        const videoPlayer = document.getElementById('courseVideo');
+        const videoSource = document.getElementById('videoSource');
+        const videoTitle = document.getElementById('videoTitle');
+        const videoDescription = document.getElementById('videoDescription');
+        const videoDuration = document.getElementById('videoDuration');
+        const videoViews = document.getElementById('videoViews');
+        const lessonContainer = document.querySelector('.space-y-2');
+        const prevBtn = document.getElementById('prevVideoBtn');
+        const nextBtn = document.getElementById('nextVideoBtn');
+        const completeBtn = document.getElementById('completeLessonBtn');
+        const bookmarkBtn = document.getElementById('bookmarkBtn');
+        const speedBtn = document.getElementById('speedBtn');
+        const mobilePrevBtn = document.getElementById('mobilePrevBtn');
+        const mobileNextBtn = document.getElementById('mobileNextBtn');
+        const mobilePlayBtn = document.getElementById('mobilePlayBtn');
+
+        // Initialize
+        loadVideo(currentVideoIndex);
+        generateLessonList();
+
+        // Function to load video by index
+        function loadVideo(index) {
+            const videoData = courseVideos[index];
+            
+            // Update video source
+            videoSource.src = videoData.videoUrl;
+            videoPlayer.load();
+            videoPlayer.playbackRate = playbackSpeed;
+            
+            // Update video information
+            videoTitle.textContent = videoData.title;
+            videoDescription.textContent = videoData.description;
+            videoDuration.textContent = videoData.duration;
+            videoViews.textContent = videoData.views;
+            
+            // Update active lesson
+            updateActiveLesson(index);
+            
+            // Update navigation buttons
+            updateNavigationButtons();
+            
+            // Update complete button
+            updateCompleteButton(videoData.completed);
+            
+            // Update progress
+            updateProgress();
+        }
+
+        // Function to generate lesson list
+        function generateLessonList() {
+            lessonContainer.innerHTML = '';
+            
+            courseVideos.forEach((video, index) => {
+                const lessonItem = document.createElement('div');
+                lessonItem.className = `lesson-item border rounded-lg p-3 cursor-pointer transition duration-200 ${index === currentVideoIndex ? 'border-blue-300 bg-blue-50' : 'border-gray-200 hover:bg-gray-50'}`;
+                lessonItem.dataset.videoIndex = index;
+                
+                lessonItem.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center flex-1 min-w-0">
+                            <div class="w-8 h-8 ${video.completed ? 'bg-green-100' : index === currentVideoIndex ? 'bg-blue-600' : 'bg-gray-200'} rounded-full flex items-center justify-center flex-shrink-0">
+                                ${video.completed ? 
+                                    '<i class="fas fa-check text-green-600 text-sm"></i>' :
+                                    `<i class="fas ${index === currentVideoIndex ? 'fa-play text-white' : 'fa-play text-gray-600'} text-sm"></i>`
+                                }
+                            </div>
+                            <div class="ml-3 min-w-0">
+                                <p class="text-sm ${index === currentVideoIndex ? 'font-medium text-gray-900' : 'text-gray-700'} truncate">${video.title}</p>
+                                <div class="flex items-center text-xs text-gray-500 mt-1">
+                                    <span class="flex items-center mr-3">
+                                        <i class="far fa-clock mr-1"></i>
+                                        ${video.duration}
+                                    </span>
+                                    ${video.completed ? 
+                                        '<span class="flex items-center text-green-600"><i class="fas fa-check mr-1"></i> Completed</span>' :
+                                        ''
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        ${index === currentVideoIndex ? 
+                            '<div class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>' :
+                            ''
+                        }
+                    </div>
+                `;
+                
+                lessonItem.addEventListener('click', () => {
+                    currentVideoIndex = index;
+                    loadVideo(currentVideoIndex);
+                });
+                
+                lessonContainer.appendChild(lessonItem);
+            });
+        }
+
+        // Function to update active lesson
+        function updateActiveLesson(index) {
+            const lessonItems = document.querySelectorAll('.lesson-item');
+            
+            lessonItems.forEach((item, i) => {
+                const icon = item.querySelector('div > div > div');
+                const title = item.querySelector('p');
+                const statusIndicator = item.querySelector('.w-2');
+                
+                if (i === index) {
+                    item.classList.remove('border-gray-200', 'hover:bg-gray-50');
+                    item.classList.add('border-blue-300', 'bg-blue-50');
+                    
+                    if (icon) {
+                        icon.classList.remove('bg-gray-200', 'bg-green-100');
+                        icon.classList.add('bg-blue-600');
+                        icon.innerHTML = '<i class="fas fa-play text-white text-sm"></i>';
+                    }
+                    
+                    if (title) {
+                        title.classList.remove('text-gray-700');
+                        title.classList.add('font-medium', 'text-gray-900');
+                    }
+                    
+                    if (!statusIndicator) {
+                        const indicator = document.createElement('div');
+                        indicator.className = 'w-2 h-2 bg-blue-600 rounded-full animate-pulse';
+                        item.querySelector('.flex.items-center.justify-between').appendChild(indicator);
+                    }
+                } else {
+                    item.classList.remove('border-blue-300', 'bg-blue-50');
+                    item.classList.add('border-gray-200', 'hover:bg-gray-50');
+                    
+                    if (icon) {
+                        const video = courseVideos[i];
+                        icon.classList.remove('bg-blue-600');
+                        icon.className = `w-8 h-8 ${video.completed ? 'bg-green-100' : 'bg-gray-200'} rounded-full flex items-center justify-center flex-shrink-0`;
+                        icon.innerHTML = video.completed ? 
+                            '<i class="fas fa-check text-green-600 text-sm"></i>' :
+                            '<i class="fas fa-play text-gray-600 text-sm"></i>';
+                    }
+                    
+                    if (title) {
+                        title.classList.remove('font-medium', 'text-gray-900');
+                        title.classList.add('text-gray-700');
+                    }
+                    
+                    if (statusIndicator) {
+                        statusIndicator.remove();
+                    }
+                }
+            });
+        }
+
+        // Function to update navigation buttons
+        function updateNavigationButtons() {
+            prevBtn.disabled = currentVideoIndex === 0;
+            nextBtn.disabled = currentVideoIndex === courseVideos.length - 1;
+            mobilePrevBtn.disabled = currentVideoIndex === 0;
+            mobileNextBtn.disabled = currentVideoIndex === courseVideos.length - 1;
+            
+            const updateButtonState = (btn, isDisabled) => {
+                if (isDisabled) {
+                    btn.classList.add('opacity-50', 'cursor-not-allowed');
+                    btn.classList.remove('hover:text-blue-600');
+                } else {
+                    btn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    btn.classList.add('hover:text-blue-600');
+                }
+            };
+            
+            updateButtonState(prevBtn, currentVideoIndex === 0);
+            updateButtonState(nextBtn, currentVideoIndex === courseVideos.length - 1);
+            updateButtonState(mobilePrevBtn, currentVideoIndex === 0);
+            updateButtonState(mobileNextBtn, currentVideoIndex === courseVideos.length - 1);
+        }
+
+        // Function to update complete button
+        function updateCompleteButton(completed) {
+            if (completed) {
+                completeBtn.innerHTML = `
+                    <i class="fas fa-check-circle mr-2"></i>
+                    Completed
+                `;
+                completeBtn.classList.remove('bg-green-600', 'hover:bg-green-700');
+                completeBtn.classList.add('bg-green-500', 'cursor-default');
+                completeBtn.disabled = true;
+            } else {
+                completeBtn.innerHTML = `
+                    <i class="fas fa-check mr-2"></i>
+                    Mark Complete
+                `;
+                completeBtn.classList.remove('bg-green-500', 'cursor-default');
+                completeBtn.classList.add('bg-green-600', 'hover:bg-green-700');
+                completeBtn.disabled = false;
+            }
+        }
+
+        // Function to update progress
+        function updateProgress() {
+            const completedLessons = courseVideos.filter(video => video.completed).length;
+            const progressPercent = Math.round((completedLessons / courseVideos.length) * 100);
+            
+            const progressBar = document.querySelector('.bg-gradient-to-r');
+            const progressText = document.querySelector('.font-semibold.text-gray-900');
+            const progressDetail = document.querySelector('.text-xs.text-gray-500');
+            
+            if (progressBar) {
+                progressBar.style.width = `${progressPercent}%`;
+            }
+            if (progressText) {
+                progressText.textContent = `${progressPercent}%`;
+            }
+            if (progressDetail) {
+                progressDetail.textContent = `${completedLessons} of ${courseVideos.length} lessons completed`;
+            }
+        }
+
+        // Event Listeners
+        prevBtn.addEventListener('click', () => {
+            if (currentVideoIndex > 0) {
+                currentVideoIndex--;
+                loadVideo(currentVideoIndex);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentVideoIndex < courseVideos.length - 1) {
+                currentVideoIndex++;
+                loadVideo(currentVideoIndex);
+            }
+        });
+
+        mobilePrevBtn.addEventListener('click', () => {
+            if (currentVideoIndex > 0) {
+                currentVideoIndex--;
+                loadVideo(currentVideoIndex);
+            }
+        });
+
+        mobileNextBtn.addEventListener('click', () => {
+            if (currentVideoIndex < courseVideos.length - 1) {
+                currentVideoIndex++;
+                loadVideo(currentVideoIndex);
+            }
+        });
+
+        completeBtn.addEventListener('click', () => {
+            courseVideos[currentVideoIndex].completed = true;
+            updateCompleteButton(true);
+            updateProgress();
+            generateLessonList();
+            
+            // Show completion message
+            const message = document.createElement('div');
+            message.className = 'fixed top-20 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-40 animate-slide-in';
+            message.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Lesson marked as complete!';
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.remove();
+            }, 3000);
+        });
+
+        bookmarkBtn.addEventListener('click', () => {
+            isBookmarked = !isBookmarked;
+            bookmarkBtn.innerHTML = isBookmarked ? 
+                '<i class="fas fa-bookmark text-blue-600"></i>' :
+                '<i class="far fa-bookmark"></i>';
+            
+            // Show feedback
+            const message = document.createElement('div');
+            message.className = 'fixed top-20 right-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg z-40 animate-slide-in';
+            message.innerHTML = isBookmarked ? 
+                '<i class="fas fa-bookmark mr-2"></i> Bookmarked!' :
+                '<i class="far fa-bookmark mr-2"></i> Bookmark removed';
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.remove();
+            }, 2000);
+        });
+
+        speedBtn.addEventListener('click', () => {
+            const speeds = [0.5, 0.75, 1, 1.25, 1.5, 2];
+            const currentIndex = speeds.indexOf(playbackSpeed);
+            playbackSpeed = speeds[(currentIndex + 1) % speeds.length];
+            
+            videoPlayer.playbackRate = playbackSpeed;
+            speedBtn.textContent = `${playbackSpeed}x`;
+        });
+
+        mobilePlayBtn.addEventListener('click', () => {
+            if (videoPlayer.paused) {
+                videoPlayer.play();
+                mobilePlayBtn.innerHTML = `
+                    <i class="fas fa-pause-circle text-xl mb-1"></i>
+                    <span class="text-xs">Pause</span>
+                `;
+            } else {
+                videoPlayer.pause();
+                mobilePlayBtn.innerHTML = `
+                    <i class="fas fa-play-circle text-xl mb-1"></i>
+                    <span class="text-xs">Play</span>
+                `;
+            }
+        });
+
+        // Video player events
+        videoPlayer.addEventListener('play', () => {
+            mobilePlayBtn.innerHTML = `
+                <i class="fas fa-pause-circle text-xl mb-1"></i>
+                <span class="text-xs">Pause</span>
+            `;
+        });
+
+        videoPlayer.addEventListener('pause', () => {
+            mobilePlayBtn.innerHTML = `
+                <i class="fas fa-play-circle text-xl mb-1"></i>
+                <span class="text-xs">Play</span>
+            `;
+        });
+
+        // Fullscreen functionality
+        document.getElementById('fullscreenBtn').addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                videoPlayer.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        // Tab switching function
+        function switchTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.add('hidden'));
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'border-blue-600', 'text-blue-600');
+                btn.classList.add('border-transparent', 'text-gray-500');
+            });
+            
+            document.getElementById(tabName).classList.remove('hidden');
+            event.target.classList.add('active', 'border-blue-600', 'text-blue-600');
+            event.target.classList.remove('border-transparent', 'text-gray-500');
+            
+            // Scroll to tabs on mobile
+            if (window.innerWidth < 1024) {
+                document.querySelector('.tab-content').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Certificate modal functions
+        function openModal() {
+            document.getElementById('certificateModal').classList.remove('hidden');
+            document.getElementById('certificateModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('certificateModal').classList.add('hidden');
+            document.getElementById('certificateModal').classList.remove('flex');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft' && currentVideoIndex > 0) {
+                currentVideoIndex--;
+                loadVideo(currentVideoIndex);
+            } else if (event.key === 'ArrowRight' && currentVideoIndex < courseVideos.length - 1) {
+                currentVideoIndex++;
+                loadVideo(currentVideoIndex);
+            } else if (event.key === ' ') {
+                event.preventDefault();
+                if (videoPlayer.paused) {
+                    videoPlayer.play();
+                } else {
+                    videoPlayer.pause();
+                }
+            } else if (event.key === 'f' || event.key === 'F') {
+                if (!document.fullscreenElement) {
+                    videoPlayer.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+        });
+
+        // Initialize search functionality
+        document.querySelector('input[placeholder="Search in course..."]').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const lessonItems = document.querySelectorAll('.lesson-item');
+            
+            lessonItems.forEach((item, index) => {
+                const title = courseVideos[index].title.toLowerCase();
+                if (title.includes(searchTerm) || searchTerm === '') {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    
+    <style>
+        /* Custom animations */
+        @@keyframes slide-in {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .animate-slide-in {
+            animation: slide-in 0.3s ease-out;
+        }
+        
+        /* Custom scrollbar */
+        .overflow-y-auto::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .overflow-y-auto::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .overflow-y-auto::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+        }
+        
+        .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+            background: #a1a1a1;
+        }
+        
+        /* Video player enhancements */
+        video {
+            background: #000;
+        }
+        
+        /* Smooth transitions */
+        .lesson-item, button, a {
+            transition: all 0.2s ease;
+        }
+        
+        /* Gradient backgrounds */
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        /* Bottom padding for mobile navigation */
+        body {
+            padding-bottom: 80px;
+        }
+        
+        @@media (min-width: 1024px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
+        
+        /* Hover effects */
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Video responsive sizing */
+        .aspect-video {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .aspect-video video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Custom shadows */
+        .shadow-custom {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Instructor Section</title>
+  <style>
+    @@keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    .img-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .img-container img {
+      transition: transform 0.4s ease;
+    }
+    .card-hover:hover .img-container img {
+      transform: scale(1.05);
+    }
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    .social-icon:hover {
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-[#faf7f2] via-[#f5f1e8] to-[#faf7f2] min-h-screen">
+  <section class="max-w-7xl mx-auto py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 md:mb-16 animate-fade-in-up">
+      <span class="inline-block text-xs md:text-sm text-green-600 bg-green-50 px-4 py-2 rounded-full font-semibold uppercase tracking-wider mb-4">
+        ✨ Our Instructors
+      </span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mt-3 leading-tight text-gray-900">
+        Meet Our Expert and<br class="hidden sm:block" />
+        <span class="relative inline-block mt-2">
+          <span class="text-yellow-500">Passionate Teaching Faculty</span>
+          <svg class="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 10C50 5 100 2 150 5C200 8 250 4 298 8" stroke="#FCD34D" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </h2>
+      <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-sm md:text-base px-4">
+        Learn from industry professionals who are passionate about sharing their knowledge and helping you succeed
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+
+      <!-- Card 1 -->
+      <div class="bg-white rounded-3xl shadow-md card-hover overflow-hidden group">
+        <div class="p-5 md:p-6">
+          <div class="img-container rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-yellow-100 to-yellow-50">
+            <img src="images/instructor1.jpg" 
+                 alt="Fatema Tuzura" 
+                 class="w-full h-56 md:h-64 object-cover" />
+          </div>
+          <div class="text-center">
+            <h3 class="text-lg md:text-xl font-bold text-gray-900">Fatema Tuzura</h3>
+            <p class="text-sm text-green-600 font-medium mt-1">UI / UX Designer</p>
+            
+            <!-- Social Icons -->
+            <div class="flex justify-center gap-3 mt-4 mb-4">
+              <a href="#" class="social-icon w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-green-600 hover:text-white text-gray-600">
+                <span class="material-icons text-sm">link</span>
+              </a>
+              <a href="#" class="social-icon w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-green-600 hover:text-white text-gray-600">
+                <span class="material-icons text-sm">mail</span>
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="border-t border-gray-100 pt-4 flex justify-around text-sm">
+              <div class="flex flex-col items-center">
+                <span class="material-icons text-green-600 text-lg mb-1">menu_book</span>
+                <span class="font-semibold text-gray-900">20</span>
+                <span class="text-xs text-gray-500">Lessons</span>
+              </div>
+              <div class="w-px bg-gray-200"></div>
+              <div class="flex flex-col items-center">
+                <span class="material-icons text-yellow-500 text-lg mb-1">people</span>
+                <span class="font-semibold text-gray-900">50</span>
+                <span class="text-xs text-gray-500">Students</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-3xl shadow-md card-hover overflow-hidden group">
+        <div class="p-5 md:p-6">
+          <div class="img-container rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-green-100 to-green-50">
+            <img src="images/instructor2.jpg" 
+                 alt="Lynn Salinas" 
+                 class="w-full h-56 md:h-64 object-cover" />
+          </div>
+          <div class="text-center">
+            <h3 class="text-lg md:text-xl font-bold text-gray-900">Lynn Salinas</h3>
+            <p class="text-sm text-green-600 font-medium mt-1">UI / UX Designer</p>
+            
+            <!-- Social Icons -->
+            <div class="flex justify-center gap-3 mt-4 mb-4">
+              <a href="#" class="social-icon w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-green-600 hover:text-white text-gray-600">
+                <span class="material-icons text-sm">link</span>
+              </a>
+              <a href="#" class="social-icon w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-green-600 hover:text-white text-gray-600">
+                <span class="material-icons text-sm">mail</span>
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="border-t border-gray-100 pt-4 flex justify-around text-sm">
+              <div class="flex flex-col items-center">
+                <span class="material-icons text-green-600 text-lg mb-1">menu_book</span>
+                <span class="font-semibold text-gray-900">20</span>
+                <span class="text-xs text-gray-500">Lessons</span>
+              </div>
+              <div class="w-px bg-gray-200"></div>
+              <div class="flex flex-col items-center">
+                <span class="material-icons text-yellow-500 text-lg mb-1">people</span>
+                <span class="font-semibold text-gray-900">50</span>
+                <span class="text-xs text-gray-500">Students</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-3xl shadow-md card-hover overflow-hidden group">
+        <div class="p-5 md:p-6">
+          <div class="img-container rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-blue-100 to-blue-50">
+            <img src="images/instructor3.jpg" 
+                 alt="Robert Ellis" 
+                 class="w-full h-56 md:h-64 object-cover" />
+          </div>
+          <div class="text-center">
+            <h3 class="text-lg md:text-xl font-bold text-gray-900">Robert Ellis</h3>
+            <p class="text-sm text-green-600 font-medium mt-1">UI / UX Designer</p>
+            
+            <!-- Social Icons -->
+            <div class="flex justify-center gap-3 mt-4 mb-4">
+              <a href="#" class="social-icon w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-green-600 hover:text-white text-gray-600">
+                <span class="material-icons text-sm">link</span>
+              </a>
+              <a href="#" class="social-icon w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-green-600 hover:text-white text-gray-600">
+                <span class="material-icons text-sm">mail</span>
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="border-t border-gray-100 pt-4 flex justify-around text-sm">
+              <div class="flex flex-col items-center">
+                <span class="material-icons text-green-600 text-lg mb-1">menu_book</span>
+                <span class="font-semibold text-gray-900">20</span>
+                <span class="text-xs text-gray-500">Lessons</span>
+              </div>
+              <div class="w-px bg-gray-200"></div>
+              <div class="flex flex-col items-center">
+                <span class="material-icons text-yellow-500 text-lg mb-1">people</span>
+                <span class="font-semibold text-gray-900">50</span>
+                <span class="text-xs text-gray-500">Students</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white rounded-3xl shadow-md card-hover overflow-hidden group">
+        <div class="p-5 md:p-6">
+          <div class="img-container rounded-2xl overflow-hidden mb-5 bg-gradient-to-br from-purple-100 to-purple-50">
+            <img src="images/instructor4.jpg" 
+                 alt="Tamara Fisher" 
+                 class="w-full h-56 md:h-64 object-cover" />
+          </div>
+          <div class="text-center">
+            <h3 class="text-lg md:text-xl font-bold text-gray-900">Tamara Fisher</h3>
+            <p class="text-sm text-green-600 font-medium mt-1">UI / UX Designer</p>
+            
+            <!-- Social Icons -->
+            <div class="flex justify-center gap-3 mt-4 mb-4">
+              <a href="#" class="social-icon w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-green-600 hover:text-white text-gray-600">
+                <span class="material-icons text-sm">link</span>
+              </a>
+              <a href="#" class="social-icon w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-green-600 hover:text-white text-gray-600">
+                <span class="material-icons text-sm">mail</span>
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="border-t border-gray-100 pt-4 flex justify-around text-sm">
+              <div class="flex flex-col items-center">
+                <span class="material-icons text-green-600 text-lg mb-1">menu_book</span>
+                <span class="font-semibold text-gray-900">20</span>
+                <span class="text-xs text-gray-500">Lessons</span>
+              </div>
+              <div class="w-px bg-gray-200"></div>
+              <div class="flex flex-col items-center">
+                <span class="material-icons text-yellow-500 text-lg mb-1">people</span>
+                <span class="font-semibold text-gray-900">50</span>
+                <span class="text-xs text-gray-500">Students</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Button -->
+    <div class="text-center mt-10 md:mt-14">
+      <a href="#" class="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-sm md:text-base">
+        View All Instructors
+        <span class="material-icons text-lg">arrow_forward</span>
+      </a>
+    </div>
+
+  </section>
+</body>
+</html>
