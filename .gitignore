@@ -1,36 +1,74 @@
-# Build folders
+##############################
+# Build output
+##############################
 bin/
 obj/
 
+##############################
 # User-specific files
+##############################
 *.user
-*.userosscache
 *.suo
+*.userprefs
+*.rsuser
+
+##############################
+# Visual Studio / Editor
+##############################
+.vs/
+.vscode/
+.idea/
 *.sln.docstates
 
-# IDE-specific
-.vs/
-*.swp
-
-# Logs
-*.log
-
-# ASP.NET secrets
-secrets.json
-
-# Publish output
-publish/
-**/wwwroot/lib/
-
-# OS generated files
+##############################
+# OS files
+##############################
 .DS_Store
 Thumbs.db
 
-# Rider / VS Code
-.idea/
-.vscode/
+##############################
+# Logs / Temp
+##############################
+*.log
+*.cache
+*.tmp
 
-# DotNet tools
-*.deps.json
-*.runtimeconfig.json
-*.globalconfig
+##############################
+# NuGet
+##############################
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+
+##############################
+# Publish output
+##############################
+/publish/
+/out/
+
+##############################
+# ASP.NET Core config
+##############################
+appsettings.Development.json
+appsettings.Local.json
+*.env
+
+##############################
+# Rider / Resharper
+##############################
+_ReSharper*/
+*.[Rr]e[Ss]harper*
+
+##############################
+# Entity Framework (optional)
+##############################
+# If you don’t want EF snapshot files:
+# *ModelSnapshot.cs
+
+##############################
+# Other
+##############################
+*.db
+*.sqlite
+*.bak
